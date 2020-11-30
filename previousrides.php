@@ -97,6 +97,19 @@ if(isset($_POST['fetch_week'])){
         <p>Here previous rides include Completed as well as Cancelled rides</p> 
     </div>
       <div class="container text-center">
+         <div class="container">
+        <form action="" method="post">
+          Datewise Filter: 
+          <input type="date" name="date1" >
+          <input type="date" name="date2" >
+          <input type="submit" value="fetch" name="fetch">
+        </form>
+        <form action="" method="post">
+          WeekWise Filter: 
+          <input type="week" name="week" >
+          <input type="submit" value="fetch" name="fetch_week">
+        </form>
+      </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -112,6 +125,7 @@ if(isset($_POST['fetch_week'])){
                     <th class="text-center">Luggage</th>
                     <th class="text-center">Total Fare<a href="previousrides.php?sort=ASC&val=total_fare"><p class="caret"></p></a><a href="previousrides.php?sort=DESC&val=total_fare"><p class="caret caret-dropup"></p></a></th>
                     <th class="text-center">Status</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -125,6 +139,7 @@ if(isset($_POST['fetch_week'])){
                   $db = new config();
                   $id = $_SESSION['id'];
                   $sql = $rides->select_previous_rides($id,  $db->conn);
+
                 }
                 if($sql == '0'){
                     ?>
@@ -144,6 +159,8 @@ if(isset($_POST['fetch_week'])){
                                 <td><?php echo ucfirst($data['luggage']); ?></td>
                                 <td><?php echo ucfirst($data['total_fare']); ?></td>
                                 <td><?php if($data['status'] == '0') { echo "Cancelled"; } elseif($data['status'] == '2'){ echo "Completed"; } else { echo "Pending"; }; ?></td>
+            
+                              
                             </tr>
                         <?php
                         if($data['status'] == '2'){
@@ -152,7 +169,7 @@ if(isset($_POST['fetch_week'])){
                     }
                     ?>
                         <tr>
-                            <td colspan="8"><h2>Total Spent: <?php echo $price; ?></h2></td>
+                            <td colspan="8"><h2>Total Spent: <?php echo $price ?></h2></td>
                         </tr>
                     <?php
                 }
@@ -160,19 +177,7 @@ if(isset($_POST['fetch_week'])){
             </tbody>
         </table>
       </div>
-      <div class="container">
-        <form action="" method="post">
-          Datewise Filter: 
-          <input type="date" name="date1" >
-          <input type="date" name="date2" >
-          <input type="submit" value="fetch" name="fetch">
-        </form>
-        <form action="" method="post">
-          WeekWise Filter: 
-          <input type="week" name="week" >
-          <input type="submit" value="fetch" name="fetch_week">
-        </form>
-      </div>
+     
     </section>
   <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 

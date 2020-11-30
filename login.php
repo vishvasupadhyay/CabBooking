@@ -33,7 +33,8 @@ if (isset($_SESSION['id'])) {
 		color:white;
 	}
 	#main{
-		background-color: crimson;
+		background-image: url('lb.jpg');
+		/*background-color: crimson;*/
 		background-size:100% 100%;
 	}
 	#jumb{
@@ -52,6 +53,7 @@ if (isset($_SESSION['id'])) {
 	</style>
 </head>
 <body>
+
 <div class="container-fluid" id='main'>
 	<div class="container jumbotron" id='jumb'>
 		<div class="col-md-4 col-lg-4 col-sm-1">
@@ -60,7 +62,7 @@ if (isset($_SESSION['id'])) {
 			<center>
 				<img src="ceb.png" alt="" style="margin-bottom: -40px;" width="100" height="100"/>
 			</center>
-			<h2 style="text-align: center;">Account Login</h2>
+			<h2 style="text-align: center; color: black;">Account Login</h2>
 			<?php
 				if($error) {
                     ?>
@@ -73,15 +75,16 @@ if (isset($_SESSION['id'])) {
 					<label for='username'>Username:</label>
 					<input type="text" class='form-control' name="username">
 				</div>
-				<div class="form-group" style="padding: 5px 0px;">
+				<div class="form-group" style="padding: 5px 0px;" >
 					<label for='password'>Password:</label>
 					<input type="password" class='form-control' name="password">
 				</div>
 				<div class="form-group" style="padding: 10px 0px;">
 					<input type="submit" class="btn btn-success form-control"  name="login" value="Login" style="padding: 5px 30px;">
 				</div>
-				<p style="font-size:16px; font-style:bold;color:white;text-align: center; margin-bottom: 20px;">Forget Password? <a href="#"> Click Here</a></p>
-				<p style="font-size:16px; font-style:bold;color:white;text-align: center;">Do not an account? <a href="signup.php"> Click Here</a></p>
+				
+				<p style="font-size:16px; font-style:bold;color:black;text-align: center; margin-bottom: 20px;">Forget Password? <a href="#"> Click Here</a></p>
+				<p style="font-size:16px; font-style:bold;color:black;text-align: center;">Do not an account? <a href="signup.php"> Click Here</a></p>
 			</form>
 		</div>
 		<div class="col-md-4 col-lg-4 col-sm-1"></div>

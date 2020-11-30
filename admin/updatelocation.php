@@ -31,7 +31,7 @@ if(isset($_POST['update'])){
   <title>Cab fare</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <link rel="icon" type="image/png" sizes="50x50" href="taxi1.png">s
+   <link rel="icon" type="image/png" sizes="50x50" href="taxi1.png">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -47,7 +47,7 @@ if(isset($_POST['update'])){
     <!-- Sidebar Section -->
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-          <li class="sidebar-brand" style="background-color:white;">
+          <li class="sidebar-brand" style="background-color:black;">
             <a class="" href="#"><img src="../ceb.png" width="100" alt="CedCab" class="logoimage" style="margin-bottom:-40px"></a>
           </li>
           <li>

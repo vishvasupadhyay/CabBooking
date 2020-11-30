@@ -9,7 +9,7 @@ nav{
     margin-bottom: 0px !important;
 }
 .navbar-default {
-    background-color: white;
+    /*background-color: aqua;*/
     border: none;
 }
 .navbar-right> .active a, .sidebar-nav>li>.active{
@@ -105,10 +105,11 @@ footer {
 .footer_cp {
     font-size: 18px;
 }
-footer {
-    color: black ;
+/*footer {
+    /*color: black ;*/
+ 
 }
-.sect10 {
+*/.sect10 {
     margin-bottom: 15px;
 }
 
@@ -268,3 +269,4 @@ footer {
         margin-right: 0;
     }
 }
+

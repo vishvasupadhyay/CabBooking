@@ -52,7 +52,7 @@ class Rides {
         if(!$run){
             echo "Some error occured! ".mysqli_error($conn);
         } else {
-            echo "<script>alert('Has your booking request been confirmed? Congratulations!')</script>";
+            echo "<script>alert('Your ride is booked!')</script>";
         }
     }
 

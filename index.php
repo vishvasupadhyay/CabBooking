@@ -37,8 +37,8 @@ if(isset($_POST['submit'])){
   <title>Cab fare</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
- <link rel="icon" type="image/png" sizes="50x50" href="taxi1.png">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <link rel="icon" type="image/png" sizes="50" href="taxi1.png">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@ if(isset($_POST['submit'])){
   <div id="wrapper">
     <!-- Header Section -->
     <header>
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default" style="background-color:aqua; ">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -144,8 +144,10 @@ if(isset($_POST['submit'])){
                 <input type="hidden" name="distance" id="distanceinput">
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
+               
                     <button type="button" id="calculatedFare" class="btn btn-default form-control sub_btn" onclick="farecalc()">Calculate Fare</button>
                   </div>
+
                   <div class="col-sm-offset-2 col-sm-10 subButton" style="margin-top:10px;">
                     <button type="submit" id="calculatedFare" name="submit" class="btn btn-default form-control sub_btn" onclick="farecalc()">Book Now</button>
                   </div>
@@ -158,7 +160,7 @@ if(isset($_POST['submit'])){
       </div>
       <div class="bg_overlay"></div>
     </section>
-    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4" style="background-color: darkgrey;">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">

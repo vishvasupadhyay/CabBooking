@@ -1,6 +1,7 @@
 <?php
 include("../Users.php");
 include("../Rides.php");
+
 $conn = new config();
 if(isset($_SESSION['id'])){
     if($_SESSION['usertype'] != '1') {
@@ -49,7 +50,7 @@ $comp = $obj1->select_invoice($id, $db->conn);
         <!-- Sidebar -->
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-        <li class="sidebar-brand" style="background-color:white;">
+        <li class="sidebar-brand" style="background-color:black;">
           <a class="" href="#"><img src="../ceb.png" width="100" alt="CedCab" class="logoimage" style="margin-bottom:-40px"></a>
         </li>
         <li>
@@ -92,8 +93,8 @@ $comp = $obj1->select_invoice($id, $db->conn);
         <div class="row">
             <div class="col-md-2 col-lg-2"></div>
             <div class="col-md-8 col-lg-8">
-                <div class="row panel panel-default">
-                    <div class="text-center panel-heading"><h1>Invoice</h1></div>
+                <div class="row panel panel-default" style="background-color: turquoise;">
+                    <div class="text-center panel-heading" style="background-color: cornsilk;"><h1>Invoice</h1></div>
                     <div class="panel-body">
                         <div class="col-md-6 col-lg-6">
                             <h3>Date:</h3>
@@ -101,7 +102,7 @@ $comp = $obj1->select_invoice($id, $db->conn);
                             <h3>From:</h3>
                             <h3>To:</h3>
                             <h3>Total Distance: </h3>
-                            <h3>Cab Type:</h3>
+                            <!-- <h3>CabType: </h3> -->
                             <h3>Luggage:</h3>
                         </div>
                         <div class="col-md-6 col-lg-6">
@@ -113,12 +114,13 @@ $comp = $obj1->select_invoice($id, $db->conn);
                                 <h3><?php echo $data['to']; ?></h3>
                                 <h3><?php echo $data['total_distance']; ?></h3>
                                 <h3><?php echo $data['luggage']; ?></h3>
+                                
                             <?php
                         } ?>
                         </div>
                     </div>
                     <div class="panel-footer text-center">
-                        <h2>Total Fare:  8534</h2>
+                        <h2>Total Fare:<?php echo ucfirst($data['total_fare']); ?></h2>
                     </div>
                 </div>
             </div>

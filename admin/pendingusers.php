@@ -56,7 +56,7 @@ if(isset($_GET['sort'])){
     <div id="sidebar-wrapper">
        
       <ul class="sidebar-nav">
-          <li class="sidebar-brand" style="background-color:white;">
+          <li class="sidebar-brand" style="background-color:black;">
             <a class="" href="#"><img src="../ceb.png" width="100" alt="CedCab" class="logoimage" style="margin-bottom:-40px"></a>
           </li>
              <h4> Hey, <?php echo $_SESSION['username']; ?>
@@ -91,7 +91,10 @@ if(isset($_GET['sort'])){
     <!-- Main Section/ Landing Page -->
     <section id="main">
     <div>
-     
+      <div class="panel-body text-right">
+        <h4> Hey, <?php echo $_SESSION['username']; ?>
+        <a href='../logout.php'>Logout</a></h4>
+      </div>
     </div>
     <div class="container text-center">
         <h2>Pending/Blocked Users</h2>

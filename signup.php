@@ -49,7 +49,8 @@ include("Users.php");
 		color:white;
 	}
 	#main{
-        background-color: crimson;
+		background-image: url('lb.jpg');
+/*        background-color: crimson;*/
 		background-size:100% 100%;
 	}
 	#jumb{
@@ -83,9 +84,9 @@ include("Users.php");
 		</div>
 		<div class="col-md-6 col-lg-6 col-sm-10" id='abc'>
 			<center>
-				<a href="index.html"><img style="margin-bottom: -40px;" src="taxi1.png" alt="" width="100" height="100"/></a>
+				<a href="index.html"><img style="margin-bottom: -40px;" src="ceb.png" alt="" width="100" height="100"/></a>
 			</center>
-            <h2 style="text-align: center;">Register Here</h2>
+            <h2 style="text-align: center; color: black;">Register Here</h2>
             <?php
                 if($error) {
                     ?>
@@ -95,37 +96,37 @@ include("Users.php");
             ?>
 			<form action="" method="POST">
 				<div class="form-group">
-					<label for='name'>Name:</label>
+					<label for='name' style="color: black;font-size: 20px;">Name:</label>
 					<input type="text" class='form-control' name="name">
 				</div>
 				<div class="form-group ">
-					<label for='username'>Username:</label>
+					<label for='username' style="color: black;font-size: 20px;">Username:</label>
 					<input type="text" class='form-control' name="username">
 				</div>
 				<div class="form-group ">
-					<label for='phone'>Phone:</label>
+					<label for='phone' style="color: black;font-size: 20px;">Phone:</label>
 					<input type="text" class='form-control' name="phone">
                 </div>
                 <div class="form-group ">
-					<label for='role'>Role:</label>
+					<label for='role'style="color: black;font-size: 20px;">Role:</label>
 					<select class="form-control" name="role" id="role">
-                        <option value="">Select role</option>
-                        <option value="1">Admin</option>
-                        <option value="0">User</option>
+                        <option value=""style="color: black;font-size: 20px;">Select role</option>
+                        <!-- <option value="1">Admin</option> -->
+                        <option value="0"style="color: black;font-size: 20px;">User</option>
                     </select>
 				</div>
 				<div class="form-group">
-					<label for='password'>Password:</label>
+					<label for='password' style="color: black;font-size: 20px;">Password:</label>
 					<input type="password" class='form-control' name="password">
 				</div>
 				<div class="form-group">
-					<label for='confirmpassword'>Confirm Password:</label>
+					<label for='confirmpassword' style="color: black;font-size: 20px;">Confirm Password:</label>
 					<input type="password" class='form-control' name="confirmpassword">
 				</div>
 				<div class="form-group " style="padding: 10px 0px;">
 					<input type="submit" class="btn btn-success form-control"  name="submit" value="Register" style="padding: 5px 30px;">
 				</div>
-				<p class="pfooter">Already have account? <a href="login.php"> Click Here</a></p>
+				<p class="pfooter" style="color: black;font-size: 20px;">Already have account? <a href="login.php"style="font-size: 20px;"> Click Here</a></p>
 			</form>
 	</div>
 </div>

@@ -105,11 +105,11 @@ if(isset($_SESSION['id'])){
 				$data = mysqli_fetch_assoc($sql);
 				?>
 				<div class="form-group">
-					<label for='name'>Name:</label>
+					<label for='name' style="color: black;">Name:</label>
 					<input type="text" class='form-control' name="name" value="<?php echo $data['name']; ?>">
 				</div>
 				<div class="form-group ">
-					<label for='phone'>Phone:</label>
+					<label for='phone' style="color: black;">Phone:</label>
 					<input type="text" class='form-control' name="phone" value="<?php echo $data['mobile']; ?>">
                 </div>
 				<div class="form-group " style="padding: 10px 0px;">

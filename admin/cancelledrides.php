@@ -47,7 +47,7 @@ if(isset($_GET['sort'])){
     <!-- Header Section -->
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-          <li class="sidebar-brand" style="background-color:white;">
+          <li class="sidebar-brand" style="background-color:black;">
             <a class="" href="#"><img src="../ceb.png" width="100" alt="CedCab" class="logoimage" style="margin-bottom:-40px"></a>
           </li>
           <h4> Hey, <?php echo $_SESSION['username']; ?>
