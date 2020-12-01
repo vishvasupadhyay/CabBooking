@@ -84,7 +84,7 @@ include("Users.php");
 		</div>
 		<div class="col-md-6 col-lg-6 col-sm-10" id='abc'>
 			<center>
-				<a href="index.html"><img style="margin-bottom: -40px;" src="ceb.png" alt="" width="100" height="100"/></a>
+				<a href="index.php"><img style="margin-bottom: -40px;" src="ceb.png" alt="" width="100" height="100"/></a>
 			</center>
             <h2 style="text-align: center; color: black;">Register Here</h2>
             <?php

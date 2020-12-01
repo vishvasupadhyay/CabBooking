@@ -35,6 +35,7 @@ if(isset($_GET['sort'])){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cab fare</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="icon" type="image/png" sizes="50" href="../taxi1.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <link rel="icon" type="image/png" sizes="50x50" href="taxi1.png">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -88,9 +89,9 @@ if(isset($_GET['sort'])){
           
       </ul>
     </div>
-    <!-- Main Section/ Landing Page -->
-    <section id="main1">
-          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><=</a>
+    <!-- Main Section/ Landing Page -->                                               
+    <section id="main1" style="background-color: skyblue;">
+          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle</a>
       <div>
         <div class="panel-body text-right">
      
@@ -145,8 +146,8 @@ if(isset($_GET['sort'])){
                                     <td><?php echo ucfirst($data['from']); ?></td>
                                     <td><?php echo ucfirst($data['to']); ?></td>
                                     <td><?php echo ucfirst($data['total_distance']); ?></td>
-                                    <td><?php echo ucfirst($data['luggage']); ?></td>
-                                    <td><?php echo ucfirst($data['total_fare']); ?></td>
+                                    <td><?php echo ucfirst($data['luggage']); ?> &#13199;</td>
+                                    <td>&#8360;.<?php echo ucfirst($data['total_fare']); ?></td>
                                     <td><?php echo ucfirst($data['customer_user_id']); ?></td>
                                     <td>
                                       <?php 

@@ -28,7 +28,7 @@ class Users {
         $run = mysqli_query($conn, $qry);
         $row = mysqli_num_rows($run);
         if ($row<1) {
-            $error = 'Please enter a valid Username or Password';
+                 echo "<script>alert('Please enter a valid Username or Password.');</script>";
         } else {
 			$data = mysqli_fetch_assoc($run);
             if($data['isblock']== "0" ){
@@ -43,7 +43,7 @@ class Users {
 				if($usertype == "1"){
 					header("location:admin/admindashboard.php");
 				} else {
-					header("location:index.php");
+					header("location:userdashboard.php");
 				}
             }
         }
@@ -101,8 +101,10 @@ class Users {
         if ($run == true) {
             if($isblock == "1") {
                 header("location:login.php");
-            } else {
-                echo "<script>alert('You are successfully registered! Please wait for admin appeovel.');</script>";
+            } 
+            else {
+
+                echo "<script>alert('You are successfully registered! Please wait for admin approvel.');</script>";
             }
         } else {
             die("Some errror Occured". mysqli_error($conn));

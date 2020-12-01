@@ -52,7 +52,7 @@ class Rides {
         if(!$run){
             echo "Some error occured! ".mysqli_error($conn);
         } else {
-            echo "<script>alert('Your ride is booked!')</script>";
+            echo "<script>alert('Your ride is confirm! Just Wait for admin approvel')</script>";
         }
     }
 
@@ -109,7 +109,7 @@ class Rides {
     }
     function sort_past($sort, $order, $conn) {
         $sql = "SELECT * FROM `ride` WHERE (`is_delete` = 0 AND `status` = 2) ORDER BY cast(`$sort` AS unsigned) $order";
-        // return $sql;
+
         $runqry = mysqli_query($conn, $sql);
         if(!$runqry){
             echo "Some error occured!".mysqli_error($conn);

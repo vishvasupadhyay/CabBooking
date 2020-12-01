@@ -91,7 +91,7 @@ if(isset($_SESSION['id'])){
 			</center>
             <h2 style="text-align: center;">Update Password Here</h2>
             <div class="text-right">
-                <a href="index.php" class="btn btn-info">Back</a>
+                <a href="userdashboard.php" class="btn btn-info">Back</a>
             </div>
             <?php
                 if($error) {

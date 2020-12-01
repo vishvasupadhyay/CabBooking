@@ -25,8 +25,9 @@ if(isset($_POST['submit'])){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cab fare</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="icon" type="image/png" sizes="50" href="../taxi1.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <link rel="icon" type="image/png" sizes="50x50" href="taxi1.png">
+   <link rel="icon" type="image/png" sizes="50x50" href="../taxi1.png">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -79,7 +80,7 @@ if(isset($_POST['submit'])){
       </ul>
     </div>
     <!-- Main Section/ Landing Page -->
-    <section id="main">
+    <section id="main" style="background-color: skyblue;">
       <div>
         <div class="panel-body text-right">
         

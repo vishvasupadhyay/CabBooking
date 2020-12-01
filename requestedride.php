@@ -1,31 +1,7 @@
-<?php
-include("../Users.php");
-include("../Rides.php");
-$conn = new config();
-if(isset($_SESSION['id'])){
-    if($_SESSION['usertype'] != '1') {
-        header("location:../index.php");
-    }
-} else {
-    header("location:../index.php");
-}
+ <?php
 
-if(isset($_GET['data'])){
-    $id = $_GET['id'];
-    $data = $_GET['data'];
-    $blck = new Rides();
-    $db = new config();
-    $sql = $blck->update($id, $data, $db->conn);
-}
-
-if(isset($_GET['data'])){
-  $data = $_GET['data'];
-  $id = $_GET['id'];
-  $blck = new Rides();
-  $db = new config();
-  $sql = $blck->update($id, $data, $db->conn);
-}
-if(isset($_GET['sort'])){
+ include ("Rides.php"); 
+ if(isset($_GET['sort'])){
   $order = $_GET['sort'];
   $sort = $_GET['val'];
   $obj = new Rides();
@@ -34,19 +10,45 @@ if(isset($_GET['sort'])){
   // echo $final;
   // die();
 }
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
+$datewise = "";
+if(isset($_GET['sort'])){
+    $order = $_GET['sort'];
+    $sort = $_GET['val'];
+    $id = $_SESSION['id'];
+    $obj = new Rides();
+    $db = new config();
+    $final = $obj->sort_col($id, $sort, $order, $db->conn);
+}
+if(isset($_POST['fetch'])){
+  $date1 = $_POST['date1'];
+  $date2 = $_POST['date2'];
+  $id = $_SESSION['id'];
+  $obj = new Rides();
+  $db = new config();
+  $datewise = $obj->filter_datewise($id, $date1, $date2, $db->conn);
+  
+}
+if(isset($_POST['fetch_week'])){
+  $week = $_POST['week'];
+  $id = $_SESSION['id'];
+  $obj = new Rides();
+  $db = new config();
+  $datewise = $obj->filter_weekwise($id, $week, $db->conn);
+  // echo $datewise;
+  // die();
+}
+  ?>
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cab fare</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <link rel="icon" type="image/png" sizes="50x50" href="../taxi1.png">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
@@ -59,46 +61,35 @@ if(isset($_GET['sort'])){
       transform: rotate(180deg);
     }
   </style>
-</head>
-<body>
+
+ </head>
+ <body>
   <div id="wrap">
-    <!-- Header Section -->
-    <div id="sidebar-wrapper">
+   <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-          <li class="sidebar-brand" style="background-color:black;">
-            <a class="" href="#"><img src="../taxi1.png" width="100" alt="CedCab" class="logoimage" style="margin-bottom:-40px"></a>
-          </li>
-           <h4> Hey, <?php echo $_SESSION['username']; ?>
-           <a href='../logout.php'>Logout</a></h4>
-          <li>
-              <h4><a style="color:white;" href="admindashboard.php">Home</a></h4>  
-          </li>
-          <li>
-            <h4><a href="#" style="color:white;">Rides</a></h4>
-            <a class="active" href='requestedrides.php'>Pending Rides</a>
-            <a href='pastrides.php'>Compeleted Rides</a>
-            <a href='cancelledrides.php'>Cancelled Rides</a>
-            <a href='allrides.php'>All Rides</a>
-          </li>
-          <li>
-            <h4><a href="#" style="color:white;">Locations</a></h4>
-            <a href='alllocations.php'>All Locations</a>
-            <a href='addlocation.php'>Add New Locations</a>
-          </li>
-          <li>
-            <h4><a href="#" style="color:white;">Users</a></h4>
-            <a href='pendingusers.php'>Pending User Requests</a>
-            <a href='approvedusers.php'>Approved User Requests</a>
-            <a href='allusers.php'>All Users</a>
-          </li>
-          <li>
-            <a href='../logout.php'>Logout</a>
-          </li>
+        <li class="sidebar-brand" style="background-color:black;">
+          <a class="" href="#"><img src="ceb.png" width="100" alt="CedCab" class="logoimage" style="margin-top:-17px"></a>
+        </li>
+        <li>
+
+            <h4><a class="active" style="color:white;" href="userdashboard.php">Home</a></h4>
+        </li>
+        <li>
+          <h4><a href="index.php" style="color: white;">Book Cab</a></h4>
+          <h4><a href="#" style="color:white;">Rides</a></h4>
+          <a href='previousrides.php'>Compeleted Rides</a>
+          <a href='requestedride.php'>Pending Rides</a>
+          <a href='cancelride.php'>Cancelled Rides</a>
+          <li><a href='updateprofile.php'>Update Profile</a></li>
+          <li><a href='changepassword.php'>Change Password</a></li>
           
+        </li>
+        <li>
+          <a href='logout.php'>Logout</a>
+        </li>   
       </ul>
     </div>
-    <!-- Main Section/ Landing Page -->
-    <section id="main"style="background-color: skyblue;">
+   <section id="main"style="background-color: skyblue;">
        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle</a>
     <div>
       <div class="panel-body text-right">
@@ -116,24 +107,24 @@ if(isset($_GET['sort'])){
                     <th class="text-center">S.no</th>
                     <th class="text-center">
                       Date
-                      <a href="requestedrides.php?sort=ASC&val=ride_date"><p class="caret"></p></a>
-                      <a href="requestedrides.php?sort=DESC&val=ride_date"><p class="caret caret-dropup"></p></a>
+                      <a href="requestedride.php?sort=ASC&val=ride_date"><p class="caret"></p></a>
+                      <a href="requestedride.php?sort=DESC&val=ride_date"><p class="caret caret-dropup"></p></a>
                     </th>
                     <th class="text-center">From</th>
                     <th class="text-center">To</th>
                     <th class="text-center">
                       Total Distance
-                      <a href="requestedrides.php?sort=ASC&val=total_distance"><p class="caret"></p></a>
-                      <a href="requestedrides.php?sort=DESC&val=total_distance"><p class="caret caret-dropup"></p></a>
+                      <a href="requestedride.php?sort=ASC&val=total_distance"><p class="caret"></p></a>
+                      <a href="requestedride.php?sort=DESC&val=total_distance"><p class="caret caret-dropup"></p></a>
                     </th>
                     <th class="text-center">Luggage</th>
                     <th class="text-center">
                       Total Fare
-                      <a href="requestedrides.php?sort=ASC&val=total_fare"><p class="caret"></p></a>
-                      <a href="requestedrides.php?sort=DESC&val=total_fare"><p class="caret caret-dropup"></p></a>
+                      <a href="requestedride.php?sort=ASC&val=total_fare"><p class="caret"></p></a>
+                      <a href="requestedride.php?sort=DESC&val=total_fare"><p class="caret caret-dropup"></p></a>
                     </th>
                     <th class="text-center">Customer Id</th>
-                    <th class="text-center" colspan="2">Action</th>
+                   <!--  <th class="text-center" colspan="2">Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -158,10 +149,7 @@ if(isset($_GET['sort'])){
                                 <td><?php echo ucfirst($data['luggage']); ?> &#13199;</td>
                                 <td>&#8360;.<?php echo ucfirst($data['total_fare']); ?></td>
                                 <td><?php echo ucfirst($data['customer_user_id']); ?></td>
-                                <td>
-                                  <a href="requestedrides.php?data=approve&id=<?php echo $data['ride_id']; ?>" class="btn btn-success btn-xs">Approve</a>&nbsp;
-                                  <a href="requestedrides.php?data=cancel&id=<?php echo $data['ride_id']; ?>" class="btn btn-danger btn-xs">Cancel</a></td>
-                                <!--  -->
+                          
                             </tr>
                         <?php
                 }
@@ -171,7 +159,7 @@ if(isset($_GET['sort'])){
             
           </div>
     </section>
-<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">
@@ -273,8 +261,8 @@ if(isset($_GET['sort'])){
   <!-- Copyright -->
 
 </footer>
-    </div>
-  </div>
-  <script src="../action.js"></script>
-</body>
-</html>
+</div>
+<script src="action.js"></script>
+ 
+ </body>
+ </html>

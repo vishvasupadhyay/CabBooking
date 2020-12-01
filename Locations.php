@@ -3,7 +3,7 @@ include_once('config.php');
 class Locations {
     public $id;
     public $name;
-    public $distance;
+    public $distance; 
     public $is_available;
 
     function select($conn) {

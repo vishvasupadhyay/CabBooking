@@ -55,19 +55,19 @@ if(isset($_POST['submit'])){
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="taxi1.png" width="85" alt="CedCab" class="logoimage" style="margin-top: -20px;"></a>
+            <a class="navbar-brand" href="#"><img src="ceb.png" width="85" alt="CedCab" class="logoimage" style="margin-top: -33px;"></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="#main">Book Cab</a></li>
+              <li><a href='login.php'>Login</a></li>
+              <li><a href='signup.php'>Sign Up</a></li>
               <?php 
                 if(isset($_SESSION['id'])) { 
-                  echo "<li><a href='previousrides.php'>Previous Rides</a></li><li><a href='updateprofile.php'>Update Profile</a></li><li><a href='changepassword.php'>Change Password</a></li><li><a>Hey, &nbsp".$_SESSION['username']."</a></li><li><a href='logout.php'>Logout</a></li>";
-                } else {
-                  echo "<li><a href='login.php'>Login</a></li><li><a href='signup.php'>Sign Up</a></li>";
-                }
+                  echo "<li><a>Hey, &nbsp".$_SESSION['username']."<li><a href='userdashboard.php'>Dashboard</a></li></a></li><li><a href='logout.php'>Logout</a></li>";
+                } 
               ?>
             </ul>
           </div>
@@ -86,7 +86,7 @@ if(isset($_POST['submit'])){
             <div class="col-sm-2 col-md-1 col-lg-1"></div>
             <div class="col-sm-8 col-md-5 col-lg-5">
               <div class="formlogo">
-                <div class="text-center"><img src="taxi1.png" width="80" alt="CedCab"></div>
+                <!-- <div class="text-center"><img src="taxi1.png" width="80" alt="CedCab"></div> -->
               </div>
               <h3 class="heading3"><strong>Your Everyday travel Partner</strong></h3>
               <p class="para2">AC Cabs for time to time travel</p>
@@ -147,8 +147,8 @@ if(isset($_POST['submit'])){
                
                     <button type="button" id="calculatedFare" class="btn btn-default form-control sub_btn" onclick="farecalc()">Calculate Fare</button>
                   </div>
-
-                  <div class="col-sm-offset-2 col-sm-10 subButton" style="margin-top:10px;">
+                  
+                    <div class="col-sm-offset-2 col-sm-10 subButton" style="margin-top:10px;">
                     <button type="submit" id="calculatedFare" name="submit" class="btn btn-default form-control sub_btn" onclick="farecalc()">Book Now</button>
                   </div>
                 </div>

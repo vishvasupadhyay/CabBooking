@@ -66,7 +66,7 @@ if (isset($_SESSION['id'])) {
 			<?php
 				if($error) {
                     ?>
-                        <p style="text-align:center !important;"><?php echo $error; ?></p>
+                        <p style="text-align:center !important; color: aqua;"><?php echo $error; ?></p>
                     <?php
                 }
 			?>
@@ -77,7 +77,8 @@ if (isset($_SESSION['id'])) {
 				</div>
 				<div class="form-group" style="padding: 5px 0px;" >
 					<label for='password'>Password:</label>
-					<input type="password" class='form-control' name="password">
+					<input type="password" class='form-control' name="password" id="myInput">
+					<input type="checkbox" onclick="myFunction()">Show Password
 				</div>
 				<div class="form-group" style="padding: 10px 0px;">
 					<input type="submit" class="btn btn-success form-control"  name="login" value="Login" style="padding: 5px 30px;">
@@ -90,5 +91,6 @@ if (isset($_SESSION['id'])) {
 		<div class="col-md-4 col-lg-4 col-sm-1"></div>
 	</div>
 </div>
+<script src="action.js"></script>
 </body>
 </html>

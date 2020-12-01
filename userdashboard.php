@@ -1,13 +1,11 @@
 <?php
-include("../Users.php");
-include("../Rides.php");
-$conn = new config();
+include ("Users.php");
+include("Locations.php");
+include("Rides.php");
 if(isset($_SESSION['id'])){
-    if($_SESSION['usertype'] != '1') {
-        header("location:../index.php");
-    }
-} else {
-    header("location:../index.php");
+  if($_SESSION['usertype'] != '0') {
+      header("location:admin/admindashboard.php");
+  }
 }
 $confirmed_ride = new Rides();
 $db = new config();
@@ -43,14 +41,8 @@ if($cancell == '0') {
   ++$cancelledrides;
   }
 }
-$obj2 = new Users();
-$blockedusers = $obj2->select_pending_users('0', $db->conn);
-$pendingusers = 0;
-foreach((array)$blockedusers as $blocked) {
-  ++$pendingusers;
-}
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,9 +52,9 @@ foreach((array)$blockedusers as $blocked) {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="icon" type="image/png" sizes="50" href="..user/taxi1.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <link rel="icon" type="image/png" sizes="50x50" href="../taxi1.png">
+   <link rel="icon" type="image/png" sizes="50x50" href="taxi1.png">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
 </head>
@@ -74,32 +66,24 @@ foreach((array)$blockedusers as $blocked) {
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand" style="background-color:black;">
-          <a class="" href="#"><img src="../ceb.png" width="100" alt="CedCab" class="logoimage" style="margin-top:-17px"></a>
+          <a class="" href="#"><img src="ceb.png" width="100" alt="CedCab" class="logoimage" style="margin-top:-17px"></a>
         </li>
         <li>
 
-            <h4><a class="active" style="color:white;" href="admindashboard.php">Home</a></h4>
+            <h4><a class="active" style="color:white;" href="userdashboard.php">Home</a></h4>
         </li>
         <li>
+          <h4><a href="index.php" style="color: white;">Book Cab</a></h4>
           <h4><a href="#" style="color:white;">Rides</a></h4>
-          <a href='requestedrides.php'>Pending Rides</a>
-          <a href='pastrides.php'>Compeleted Rides</a>
-          <a href='cancelledrides.php'>Cancelled Rides</a>
-          <a href='allrides.php'>All Rides</a>
+          <a href='requestedride.php'>Pending Rides</a>
+          <a href='previousrides.php'>Compeleted Rides</a>
+          <a href='cancelride.php'>Cancelled Rides</a>
+          <li><a href='updateprofile.php'>Update Profile</a></li>
+          <li><a href='changepassword.php'>Change Password</a></li>
+          
         </li>
         <li>
-          <h4><a href="#" style="color:white;">Locations</a></h4>
-          <a href='alllocations.php'>All Locations</a>
-          <a href='addlocation.php'>Add New Locations</a>
-        </li>
-        <li>
-          <h4><a href="#" style="color:white;">Users</a></h4>
-          <a href='pendingusers.php'>Pending User Requests</a>
-          <a href='approvedusers.php'>Approved User Requests</a>
-          <a href='allusers.php'>All Users</a>
-        </li>
-        <li>
-          <a href='../logout.php'>Logout</a>
+          <a href='logout.php'>Logout</a>
         </li>   
       </ul>
     </div>
@@ -117,18 +101,14 @@ foreach((array)$blockedusers as $blocked) {
           <div class="col-md-4 col-lg-4">
             <div class="panel panel-warning">
               <div class="panel-heading text-center">
-                <h3>Pending Rides</h3>
+                <h3 >Pending Rides</h3>
                 <h1><?php echo $pendingrides; ?></h1>
               </div>
-              <div class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0%" aria-valuemin="0" aria-valuemax="100" style="width:3%">
-                0%
-              </div>
-            </div>
-            <div class="panel-footer text-center"><a href="requestedrides.php">Click</a> to see more..
+             
+            <div class="panel-footer text-center"><a href="requestedride.php">Click</a> to see more..
             </div>
             </div>
-            <div class="panel panel-info">
+      <!--       <div class="panel panel-info">
               <div class="panel-heading text-center">
                 <h3>Pending User Requests</h3>
                 <h1><?php echo $pendingusers; ?></h1>
@@ -140,7 +120,7 @@ foreach((array)$blockedusers as $blocked) {
             </div>
 
               <div class="panel-footer text-center"><a href="pendingusers.php">Click</a> to see more..</div>
-            </div>
+            </div> -->
           </div>
           <div class="col-md-4 col-lg-4">
             <div class="panel panel-danger">
@@ -148,21 +128,17 @@ foreach((array)$blockedusers as $blocked) {
                 <h3>Cancelled Rides</h3>
                 <h1><?php echo $cancelledrides; ?></h1>
               </div>
-              <div class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40%" aria-valuemin="0" aria-valuemax="100" style="width:10%">
-                5%
-              </div>
+              
+              <div class="panel-footer text-center"><a href="cancelride.php">Click</a> to see more..</div>
             </div>
-              <div class="panel-footer text-center"><a href="cancelledrides.php">Click</a> to see more..</div>
-            </div>
-            <div class="panel panel-success">
+            <!-- <div class="panel panel-success">
               <div class="panel-heading text-center">
                 <h3>Total Earning</h3>
                 <h1>&#8360;.<?php echo $total;  ?></h1>
               </div>
            
               <div class="panel-footer text-center"><a href="allrides.php">Click</a> to see more..</div>
-            </div>
+            </div> -->
           </div>
           <div class="col-md-4 col-lg-4">
             <div class="panel panel-primary text-center">
@@ -170,12 +146,8 @@ foreach((array)$blockedusers as $blocked) {
                 <h3>Completed Rides</h3>
                 <h1><?php echo $completedrides; ?></h1>
               </div>
-              <div class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:5%">
-                5%
-              </div>
-            </div>
-              <div class="panel-footer text-ecnter"><a href="pastrides.php">Click</a> to see more..</div>
+             
+              <div class="panel-footer text-ecnter"><a href="previousrides.php">Click</a> to see more..</div>
             </div>
           </div>
         </div>
@@ -285,6 +257,6 @@ foreach((array)$blockedusers as $blocked) {
 </footer>
 
   </div>
-  <script src="../action.js"></script>
+  <script src="action.js"></script>
 </body>
 </html>

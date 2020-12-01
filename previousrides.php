@@ -81,8 +81,8 @@ if(isset($_POST['fetch_week'])){
             <ul class="nav navbar-nav navbar-right">
             <li><a href="index.php">Book Cab</a></li>
             <li class="active"><a href='previousrides.php'>Previous Rides</a></li>
-            <li><a href='updateprofile.php'>Update Profile</a></li>
-            <li><a href='changepassword.php'>Change Password</a></li>
+            <!-- <li><a href='updateprofile.php'>Update Profile</a></li> -->
+           <!--  <li><a href='changepassword.php'>Change Password</a></li> -->
             <li><a><?php echo "Hey, &nbsp".$_SESSION['username']; ?></a></li>
             <li><a href='logout.php'>Logout</a></li>
             </ul>
@@ -93,8 +93,7 @@ if(isset($_POST['fetch_week'])){
     <!-- Main Section/ Landing Page -->
     <section id="main">
     <div class="text-center">
-        <h2>All Previous Rides</h2>
-        <p>Here previous rides include Completed as well as Cancelled rides</p> 
+        
     </div>
       <div class="container text-center">
          <div class="container">
@@ -159,7 +158,7 @@ if(isset($_POST['fetch_week'])){
                                 <td><?php echo ucfirst($data['luggage']); ?></td>
                                 <td><?php echo ucfirst($data['total_fare']); ?></td>
                                 <td><?php if($data['status'] == '0') { echo "Cancelled"; } elseif($data['status'] == '2'){ echo "Completed"; } else { echo "Pending"; }; ?></td>
-            
+
                               
                             </tr>
                         <?php
@@ -169,7 +168,7 @@ if(isset($_POST['fetch_week'])){
                     }
                     ?>
                         <tr>
-                            <td colspan="8"><h2>Total Spent: <?php echo $price ?></h2></td>
+                            <td colspan="8"><h2>Total Spent:&#8360;.<?php echo $price ?></h2></td>
                         </tr>
                     <?php
                 }

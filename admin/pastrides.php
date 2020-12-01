@@ -35,7 +35,7 @@ if(isset($_GET['sort'])){
   <title>Cab fare</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <link rel="icon" type="image/png" sizes="50x50" href="taxi1.png">
+   <link rel="icon" type="image/png" sizes="50x50" href="../taxi1.png">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -88,8 +88,8 @@ if(isset($_GET['sort'])){
       </ul>
     </div>
     <!-- Main Section/ Landing Page -->
-    <section id="main1">
-      <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><=</a>
+    <section id="main1" style="background-color: skyblue;">
+      <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle</a>
     <div>
       <div class="panel-body text-right">
        
@@ -144,8 +144,8 @@ if(isset($_GET['sort'])){
                                     <td><?php echo ucfirst($data['from']); ?></td>
                                     <td><?php echo ucfirst($data['to']); ?></td>
                                     <td><?php echo ucfirst($data['total_distance']); ?></td>
-                                    <td><?php echo ucfirst($data['luggage']); ?></td>
-                                    <td><?php echo ucfirst($data['total_fare']); ?></td>
+                                    <td><?php echo ucfirst($data['luggage']); ?>  &#13199;</td>
+                                    <td>&#8360;.<?php echo ucfirst($data['total_fare']); ?></td>
                                     <td><?php echo ucfirst($data['customer_user_id']); ?></td>
                                     <td><a href="pastrides.php?ride=1&id=<?php echo $data['ride_id']; ?>" class="btn btn-danger btn-xs">Remove</a></td>
                                     <td><a href="invoice.php?id=<?php echo $data['ride_id']; ?>" class="btn btn-success btn-xs">Print Invoice<span class="glyphicon glyphicon-print"></span></a></td>

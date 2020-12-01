@@ -32,7 +32,7 @@ function farecalc() {
             data: { pickup: pckup, drop: drp, cab: cb, luggage: lug },
             dataType: "json"
         }).done(function (msg) {
-            $("#calculatedFare").html("<strong>Calculated Fare: "+ msg[0] +"</strong>");
+            $("#calculatedFare").html("<strong>Calculated Fare:"+msg[0] +"</strong>");
             $("#buttonfare").val(msg[0]);
             $("#distanceinput").val(msg[1]);
             $(".subButton").css("display", "block");
@@ -51,3 +51,12 @@ $("#menu-toggle").click(function(e) {
     e.preventDefault();
   $("#wrap").toggleClass("toggled");
   });
+
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}

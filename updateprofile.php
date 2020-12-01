@@ -78,17 +78,17 @@ if(isset($_SESSION['id'])){
 	</style>
 </head>
 <body>
-<div class="container-fluid" id='main'>
+<div class="container-fluid" id='main' style="background-color: cadetblue;">
 	<div class="jumbotron" id='jumb'>
 		<div class="col-md-3 col-lg-3 col-sm-1">
 		</div>
-		<div class="col-md-6 col-lg-6 col-sm-10" id='abc'>
+		<div class="col-md-6 col-lg-6 col-sm-10" id='abc' style="background-color: crimson;">
 			<center>
 				<a href="index.php"><img style="margin-bottom: -40px;" src="ceb.png" alt="" width="100" height="100"/></a>
 			</center>
             <h2 style="text-align: center; color: black"><b>Update Your Profile Here<b></h2>
             <div class="text-right">
-                <a href="index.php" class="btn btn-info">Back</a>
+                <a href="userdashboard.php" class="btn btn-info">Back</a>
             </div>
             <?php
                 if($error) {

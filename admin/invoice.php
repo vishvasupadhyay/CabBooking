@@ -39,7 +39,7 @@ $comp = $obj1->select_invoice($id, $db->conn);
   <title>Cab fare</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <link rel="icon" type="image/png" sizes="50x50" href="taxi1.png">
+   <link rel="icon" type="image/png" sizes="50x50" href="../taxi1.png">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -113,14 +113,14 @@ $comp = $obj1->select_invoice($id, $db->conn);
                                 <h3><?php echo $data['from']; ?></h3>
                                 <h3><?php echo $data['to']; ?></h3>
                                 <h3><?php echo $data['total_distance']; ?></h3>
-                                <h3><?php echo $data['luggage']; ?></h3>
+                                <h3><?php echo $data['luggage']; ?> &#13199;</h3>
                                 
                             <?php
                         } ?>
                         </div>
                     </div>
                     <div class="panel-footer text-center">
-                        <h2>Total Fare:<?php echo ucfirst($data['total_fare']); ?></h2>
+                        <h2>Total Fare:&#8360;.<?php echo ucfirst($data['total_fare']); ?></h2>
                     </div>
                 </div>
             </div>

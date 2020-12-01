@@ -34,7 +34,7 @@ if(isset($_GET['sort'])){
   <title>Cab fare</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <link rel="icon" type="image/png" sizes="50x50" href="taxi1.png">
+   <link rel="icon" type="image/png" sizes="50x50" href="../taxi1.png">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -51,7 +51,7 @@ if(isset($_GET['sort'])){
 </head>
 <body>
   <div id="wrap">
-    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><=</a>
+    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle</a>
     <!-- Header Section -->
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
@@ -88,7 +88,7 @@ if(isset($_GET['sort'])){
       </ul>
     </div>
     <!-- Main Section/ Landing Page -->
-    <section id="main">
+    <section id="main" style="background-color: skyblue;">
       <div>
        
       </div>
