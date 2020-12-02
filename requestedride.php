@@ -1,5 +1,5 @@
  <?php
-
+ include ("Users.php");
  include ("Rides.php"); 
  if(isset($_GET['sort'])){
   $order = $_GET['sort'];
@@ -17,7 +17,7 @@ if(isset($_GET['sort'])){
     $id = $_SESSION['id'];
     $obj = new Rides();
     $db = new config();
-    $final = $obj->sort_col($id, $sort, $order, $db->conn);
+    $final = $obj->sort_col($id, $sort, $order, '2', $db->conn);
 }
 if(isset($_POST['fetch'])){
   $date1 = $_POST['date1'];
@@ -25,7 +25,7 @@ if(isset($_POST['fetch'])){
   $id = $_SESSION['id'];
   $obj = new Rides();
   $db = new config();
-  $datewise = $obj->filter_datewise($id, $date1, $date2, $db->conn);
+  $datewise = $obj->filter_datewise($id, $date1, $date2, '2', $db->conn);
   
 }
 if(isset($_POST['fetch_week'])){
@@ -33,7 +33,7 @@ if(isset($_POST['fetch_week'])){
   $id = $_SESSION['id'];
   $obj = new Rides();
   $db = new config();
-  $datewise = $obj->filter_weekwise($id, $week, $db->conn);
+  $datewise = $obj->filter_weekwise($id, $week, '2', $db->conn);
   // echo $datewise;
   // die();
 }
@@ -101,6 +101,19 @@ if(isset($_POST['fetch_week'])){
         <p>Here you can Manage Pending Rides</p> 
     </div>
       <div class="container text-center">
+        <div class="container">
+        <form action="requestedride.php" method="post">
+          Datewise Filter: 
+          <input type="date" name="date1" required>
+          <input type="date" name="date2" required>
+          <input type="submit" value="fetch" name="fetch">
+        </form>
+        <form action="requestedride.php" method="post">
+          WeekWise Filter: 
+          <input type="week" name="week" required>
+          <input type="submit" value="fetch" name="fetch_week">
+        </form>
+      </div>
         <table class="container table table-striped" style="width:80%;">
             <thead>
                 <tr>
@@ -129,15 +142,23 @@ if(isset($_POST['fetch_week'])){
             </thead>
             <tbody>
             <?php
-            if(isset($_GET['sort'])) {
-              $sql = $final; 
-            } else {
-                $rides = new Rides();
-                $db = new config();
-                $sql = $rides->select_ride('1', $db->conn);
-            }
-                  $price = 0;
-                  $i = 1;
+                if(isset($_GET['sort'])) {
+                  $sql = $final; 
+                } elseif($datewise != "") {
+                  $sql = $datewise;
+                } else {
+                  $rides = new Rides();
+                  $db = new config();
+                  $id = $_SESSION['id'];
+                  $sql = $rides->select_previous_rides($id, '2',  $db->conn);
+                }
+                if($sql == '0'){
+                    ?>
+                        <td colspan="8">No Data Available</td>
+                    <?php
+                } else {
+                    $price = 0;
+                    $i = 1;
                     foreach($sql as $data){
                         ?>
                             <tr>
@@ -146,12 +167,21 @@ if(isset($_POST['fetch_week'])){
                                 <td><?php echo ucfirst($data['from']); ?></td>
                                 <td><?php echo ucfirst($data['to']); ?></td>
                                 <td><?php echo ucfirst($data['total_distance']); ?></td>
-                                <td><?php echo ucfirst($data['luggage']); ?> &#13199;</td>
-                                <td>&#8360;.<?php echo ucfirst($data['total_fare']); ?></td>
-                                <td><?php echo ucfirst($data['customer_user_id']); ?></td>
-                          
+                                <td><?php if($data['luggage'] == "") { echo '0'; } else { echo $data['luggage']; }  ?></td>
+                         <!--        <td><?php echo ucfirst($data['cabtype']); ?></td> -->
+                                <td><?php echo ucfirst($data['total_fare']); ?></td>
+                                <td><?php if($data['status'] == '0') { echo "Cancelled"; } elseif($data['status'] == '2'){ echo "Completed"; } else { echo "Pending"; }; ?></td>
                             </tr>
                         <?php
+                        if($data['status'] == '2'){
+                          $price = $price + $data['total_fare'];
+                        }
+                    }
+                    ?>
+                        <tr>
+                            <td colspan="9"><h2>Total Spent: <?php echo $price; ?></h2></td>
+                        </tr>
+                    <?php
                 }
             ?>
             </tbody>

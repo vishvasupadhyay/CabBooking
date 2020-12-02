@@ -24,6 +24,7 @@ nav{
 #main {
     margin: 0px;
     padding: 0px;
+    /*background-color: aqua;*/
 }
 .bg {
     width: 100%;
@@ -87,7 +88,7 @@ footer {
     text-align: center;
 }
 .sub_btn {
-    background-color: #ebef0c;
+   
     border: 0px;
 }
 .col-sm-offset-2 {

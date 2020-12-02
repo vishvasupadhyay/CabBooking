@@ -58,6 +58,7 @@ foreach((array)$blockedusers as $blocked) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cab fare</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> 
   <link rel="icon" type="image/png" sizes="50" href="..user/taxi1.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <link rel="icon" type="image/png" sizes="50x50" href="../taxi1.png">
@@ -177,6 +178,7 @@ foreach((array)$blockedusers as $blocked) {
             </div>
               <div class="panel-footer text-ecnter"><a href="pastrides.php">Click</a> to see more..</div>
             </div>
+            
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@ class Users {
             if($isblock == "1") {
                 header("location:login.php");
             } else {
-                echo "<script>alert('You are successfully registered! Please wait for admin appeovel.');</script>";
+                echo "<script>alert('You are successfully registered! Please wait for admin approvel.');</script>";
             }
         } else {
             die("Some errror Occured". mysqli_error($conn));

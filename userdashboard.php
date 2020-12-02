@@ -5,8 +5,13 @@ include("Rides.php");
 if(isset($_SESSION['id'])){
   if($_SESSION['usertype'] != '0') {
       header("location:admin/admindashboard.php");
+  }elseif(isset($_SESSION['booking'])) {
+    header("location:confirmbooking.php");
   }
+
+  
 }
+
 $confirmed_ride = new Rides();
 $db = new config();
 $comp = $confirmed_ride->select_confirmed_ride($db->conn);
@@ -75,8 +80,8 @@ if($cancell == '0') {
         <li>
           <h4><a href="index.php" style="color: white;">Book Cab</a></h4>
           <h4><a href="#" style="color:white;">Rides</a></h4>
-          <a href='requestedride.php'>Pending Rides</a>
           <a href='previousrides.php'>Compeleted Rides</a>
+          <a href='requestedride.php'>Pending Rides</a>
           <a href='cancelride.php'>Cancelled Rides</a>
           <li><a href='updateprofile.php'>Update Profile</a></li>
           <li><a href='changepassword.php'>Change Password</a></li>

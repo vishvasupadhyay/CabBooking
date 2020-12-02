@@ -97,11 +97,11 @@ include("Users.php");
 			<form action="" method="POST">
 				<div class="form-group">
 					<label for='name' style="color: black;font-size: 20px;">Name:</label>
-					<input type="text" class='form-control' name="name">
+					<input type="text" class='form-control' name="name" required>
 				</div>
 				<div class="form-group ">
 					<label for='username' style="color: black;font-size: 20px;">Username:</label>
-					<input type="text" class='form-control' name="username">
+					<input type="text" class='form-control' name="username" required>
 				</div>
 				<div class="form-group ">
 					<label for='phone' style="color: black;font-size: 20px;">Phone:</label>
@@ -117,11 +117,11 @@ include("Users.php");
 				</div>
 				<div class="form-group">
 					<label for='password' style="color: black;font-size: 20px;">Password:</label>
-					<input type="password" class='form-control' name="password">
+					<input type="password" class='form-control' name="password" required>
 				</div>
 				<div class="form-group">
 					<label for='confirmpassword' style="color: black;font-size: 20px;">Confirm Password:</label>
-					<input type="password" class='form-control' name="confirmpassword">
+					<input type="password" class='form-control' name="confirmpassword" required>
 				</div>
 				<div class="form-group " style="padding: 10px 0px;">
 					<input type="submit" class="btn btn-success form-control"  name="submit" value="Register" style="padding: 5px 30px;">

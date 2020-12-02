@@ -5,6 +5,8 @@ include("Rides.php");
 if(isset($_SESSION['id'])){
   if($_SESSION['usertype'] != '0') {
       header("location:admin/admindashboard.php");
+  } elseif(isset($_SESSION['booking'])) {
+    header("location:confirmbooking.php");
   }
 }
 // $loc = new Locations();
@@ -27,6 +29,7 @@ if(isset($_POST['submit'])){
     
   }
 }
+// print_r($_SESSION['booking']);
 ?>
 
 <!DOCTYPE html>
@@ -145,11 +148,11 @@ if(isset($_POST['submit'])){
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
                
-                    <button type="button" id="calculatedFare" class="btn btn-default form-control sub_btn" onclick="farecalc()">Calculate Fare</button>
+                    <button type="button" id="calculatedFare" class="btn btn-default form-control sub_btn" onclick="farecalc()" style="background-color: cyan !important;">Calculate Fare</button>
                   </div>
                   
                     <div class="col-sm-offset-2 col-sm-10 subButton" style="margin-top:10px;">
-                    <button type="submit" id="calculatedFare" name="submit" class="btn btn-default form-control sub_btn" onclick="farecalc()">Book Now</button>
+                    <button type="submit" id="calculatedFare" name="submit" class="btn btn-default form-control sub_btn" onclick="farecalc()"style="background-color: cyan !important;">Book Now</button>
                   </div>
                 </div>
               </form>
@@ -160,7 +163,7 @@ if(isset($_POST['submit'])){
       </div>
       <div class="bg_overlay"></div>
     </section>
-    <footer class="page-footer font-small mdb-color lighten-3 pt-4" style="background-color: darkgrey;">
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4" style="background-color: aqua;">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">

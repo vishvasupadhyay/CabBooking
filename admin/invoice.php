@@ -102,7 +102,7 @@ $comp = $obj1->select_invoice($id, $db->conn);
                             <h3>From:</h3>
                             <h3>To:</h3>
                             <h3>Total Distance: </h3>
-                            <!-- <h3>CabType: </h3> -->
+                           <!--  <h3>CabType: </h3> -->
                             <h3>Luggage:</h3>
                         </div>
                         <div class="col-md-6 col-lg-6">
@@ -113,6 +113,7 @@ $comp = $obj1->select_invoice($id, $db->conn);
                                 <h3><?php echo $data['from']; ?></h3>
                                 <h3><?php echo $data['to']; ?></h3>
                                 <h3><?php echo $data['total_distance']; ?></h3>
+                               
                                 <h3><?php echo $data['luggage']; ?> &#13199;</h3>
                                 
                             <?php

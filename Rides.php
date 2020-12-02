@@ -17,6 +17,7 @@ class Rides {
         } else {
             return '0';
         }
+    
     }
     function select_ride($data, $conn) {
         $sql = "SELECT * FROM ride WHERE status = '".$data."'";
@@ -27,6 +28,7 @@ class Rides {
             return '0';
         }
     }
+
     function select_confirmed_ride($conn) {
         $sql = "SELECT * FROM ride WHERE `is_delete` = 0 AND `status` = 2";
         $run = mysqli_query($conn, $sql);
@@ -36,8 +38,9 @@ class Rides {
             return 0;
         }
     }
-    function select_previous_rides($id, $conn) {
-        $sql = "SELECT * FROM ride WHERE `customer_user_id` = '".$id."'";
+
+    function select_previous_rides($id, $status, $conn) {
+        $sql = "SELECT * FROM ride WHERE `customer_user_id` = '".$id."' AND `status` = '".$status."'";
         $run = mysqli_query($conn, $sql);
         if(mysqli_num_rows($run)>0){
             return $run;
@@ -46,13 +49,15 @@ class Rides {
         }
     }
     
-    function insert($from, $to, $luggage, $fare, $distance, $user_id, $status, $conn){
+    function insert($from, $to, $luggage, $fare, $distance,$user_id, $status, $conn) {
         $sql = "INSERT INTO ride(`ride_date`, `from`, `to`, `total_distance`, `luggage`, `total_fare`, `status`, `customer_user_id`, `is_delete`) VALUES (NOW(), '".$from."', '".$to."', '".$distance."', '".$luggage."', '".$fare."', '".$status."', '".$user_id."',0)";
+        // echo $sql;
+        // die();
         $run = mysqli_query($conn, $sql);
         if(!$run){
             echo "Some error occured! ".mysqli_error($conn);
         } else {
-            echo "<script>alert('Your ride is confirm! Just Wait for admin approvel')</script>";
+            echo "<script>alert('Your ride is booked! Just wait for Admin approvel.'); window.location.href = 'requestedride.php';</script>";
         }
     }
 
@@ -63,6 +68,7 @@ class Rides {
             echo "Some error occured!".mysqli_error($conn);
         }
     }
+
     function update($id, $data, $conn) {
         $status = "";
         if($data == "cancel") {
@@ -77,8 +83,8 @@ class Rides {
         }
     }
 
-    function sort_col($id, $sort, $order, $conn) {
-        $sql = "SELECT * FROM `ride` WHERE `customer_user_id` = '".$id."' ORDER BY cast(`$sort` AS unsigned) $order";
+    function sort_col($id, $sort, $order, $status, $conn) {
+        $sql = "SELECT * FROM `ride` WHERE `customer_user_id` = '".$id."' AND `status` = $status AND  `status` = $status ORDER BY cast(`$sort` AS unsigned) $order";
         // return $sql;
         $runqry = mysqli_query($conn, $sql);
         if(!$runqry){
@@ -87,6 +93,7 @@ class Rides {
             return $runqry;
         }
     }
+
     function sort_allrides($sort, $order, $conn) {
         $sql = "SELECT * FROM `ride` ORDER BY cast(`$sort` AS unsigned) $order";
         // return $sql;
@@ -97,6 +104,7 @@ class Rides {
             return $runqry;
         }
     }
+
     function sort_statuswise($status, $sort, $order, $conn) {
         $sql = "SELECT * FROM `ride` WHERE `status` = $status ORDER BY cast(`$sort` AS unsigned) $order";
         // return $sql;
@@ -107,9 +115,10 @@ class Rides {
             return $runqry;
         }
     }
+
     function sort_past($sort, $order, $conn) {
         $sql = "SELECT * FROM `ride` WHERE (`is_delete` = 0 AND `status` = 2) ORDER BY cast(`$sort` AS unsigned) $order";
-
+        // return $sql;
         $runqry = mysqli_query($conn, $sql);
         if(!$runqry){
             echo "Some error occured!".mysqli_error($conn);
@@ -118,8 +127,8 @@ class Rides {
         }
     }
 
-    function filter_datewise($id, $date1, $date2, $conn) {
-        $sql = "SELECT * FROM `ride` WHERE `customer_user_id` = '".$id."' AND DATE(`ride_date`) BETWEEN '".$date1."' AND '".$date2."'";
+    function filter_datewise($id, $date1, $date2, $status, $conn) {
+        $sql = "SELECT * FROM `ride` WHERE `customer_user_id` = '".$id."' AND `status` = '".$status."' AND DATE(`ride_date`) BETWEEN '".$date1."' AND '".$date2."'";
         $runqry = mysqli_query($conn, $sql);
         if(!$runqry){
             echo "Some error occured!".mysqli_error($conn);
@@ -127,9 +136,10 @@ class Rides {
             return $runqry;
         }
     }
-    function filter_weekwise($id, $week, $conn) {
+
+    function filter_weekwise($id, $week, $status, $conn) {
         $wk = (substr($week,-2)-1);
-        $sql = "SELECT * FROM `ride` WHERE `customer_user_id` = '".$id."' AND WEEK(`ride_date`) = '".$wk."'";
+        $sql = "SELECT * FROM `ride` WHERE `customer_user_id` = '".$id."' AND `status` = $status AND WEEK(`ride_date`) = '".$wk."'";
         $runqry = mysqli_query($conn, $sql);
         if(!$runqry){
             echo "Some error occured!".mysqli_error($conn);
@@ -147,6 +157,12 @@ class Rides {
             return 0;
         }
     }
+    function fetchRidedates($conn) {
+        $sql = "SELECT sum(total_fare) AS total, ride_date, count(ride_date) FROM `ride` WHERE `status` = 2 GROUP BY DATE(`ride_date`)";
+        $run = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($run)){
+            return $run;
+        }
+    }
 }
-
 ?>

@@ -1,5 +1,6 @@
 <?php
 include('Users.php');
+
 $error = '';
 if (isset($_SESSION['id'])) {
     header("location:index.php");
@@ -13,6 +14,7 @@ if (isset($_SESSION['id'])) {
 		$sql = $user->login($username, $password, $db->conn);
     }
 }
+
 
 ?>
 
@@ -73,11 +75,11 @@ if (isset($_SESSION['id'])) {
 			<form action="login.php" method="POST">
 				<div class="form-group" style="padding: 5px 0px;">
 					<label for='username'>Username:</label>
-					<input type="text" class='form-control' name="username">
+					<input type="text" class='form-control' name="username" required>
 				</div>
 				<div class="form-group" style="padding: 5px 0px;" >
 					<label for='password'>Password:</label>
-					<input type="password" class='form-control' name="password" id="myInput">
+					<input type="password" class='form-control' name="password" id="myInput" required>
 					<input type="checkbox" onclick="myFunction()">Show Password
 				</div>
 				<div class="form-group" style="padding: 10px 0px;">

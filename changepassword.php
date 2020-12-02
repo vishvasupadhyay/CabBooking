@@ -7,7 +7,7 @@ if(isset($_SESSION['id'])){
 		header("location:admin/admindashboard.php");
 		}
 	} else {
-	header("location:../index.php");
+	header("location:index.php");
 	}
  $error = "";
  if(isset($_POST['submit'])) {

@@ -1,9 +1,12 @@
 <?php
+session_start();
 include('Locations.php');
 $obj = new Locations();
 $db = new config();
 $sql = $obj->select_loc($db->conn);
 $arr = array();
+
+
 while($dt=mysqli_fetch_assoc($sql)){
     $arr = $arr + array($dt['name']=>$dt['distance']);
 }
@@ -16,6 +19,14 @@ $luggage = $_POST['luggage'];
 $myarr = array($pick, $drop, $cab, $luggage);
 $pickup_distance;
 $drop_distance;
+
+// $_SESSION['data'][0]=$_POST['pickup'];
+// $_SESSION['data'][1]=$_POST['drop'];
+// $_SESSION['data'][2]=$_POST['cab'];
+// $_SESSION['data'][3]=$_POST['luggage'];
+
+
+
 foreach($arr as $key => $value) {
     if($key==$pick){
         $pickup_distance = $arr[$key];
@@ -24,6 +35,8 @@ foreach($arr as $key => $value) {
     }
 }
 $final_distance = abs($pickup_distance-$drop_distance);
+
+$_SESSION['distance']= $final_distance;
 
 //calculating luggage price
 
@@ -85,6 +98,12 @@ if($cab=='cedmicro') {
     }
     $fare = $fare + (2*$l_price);
 }
+$_SESSION['fare']=$fare;
+if(!isset($_SESSION['username'])){
+    $_SESSION['booking'] = array('from'=>$pick,'to'=>$drop,'cabtype'=>$cab,'luggage'=>$luggage,'total_distance'=>$final_distance,'fare'=>$fare);
+}
+
+
 $arr = array($fare, $final_distance);
 echo json_encode($arr);
 ?>

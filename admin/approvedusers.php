@@ -51,7 +51,7 @@ if(isset($_GET['sort'])){
 </head>
 <body>
   <div id="wrap">
-    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle</a>
+    
     <!-- Header Section -->
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
@@ -89,6 +89,7 @@ if(isset($_GET['sort'])){
     </div>
     <!-- Main Section/ Landing Page -->
     <section id="main" style="background-color: skyblue;">
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle</a>
       <div>
        
       </div>
