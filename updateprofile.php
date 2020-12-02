@@ -7,13 +7,13 @@ if(isset($_SESSION['id'])){
 		header("location:admin/admindashboard.php");
 		}
 	} else {
-	header("location:../index.php");
+	header("location:index.php");
 	}
  $error = "";
  if(isset($_POST['submit'])) {
-    $name = $_POST['name'];
+    $username = $_POST['username'];
 	$phone = $_POST['phone'];
-    if($name == '' || $phone == ''){
+    if($username == '' || $phone == ''){
         $error = 'Please complete the form and then submit';
     } 
     else {
@@ -21,7 +21,7 @@ if(isset($_SESSION['id'])){
 		$db = new config();
 		$sql1 = $obj->select_user_id($_SESSION['id'], $db->conn);
 		$data = mysqli_fetch_assoc($sql1);
-		$username = $data['user_name'];
+		$name = $data['name'];
 		$isblock = $data['isblock'];
 		$pass = $data['password'];
 		$role = $data['isadmin'];
@@ -105,8 +105,8 @@ if(isset($_SESSION['id'])){
 				$data = mysqli_fetch_assoc($sql);
 				?>
 				<div class="form-group">
-					<label for='name' style="color: black;">Name:</label>
-					<input type="text" class='form-control' name="name" value="<?php echo $data['name']; ?>">
+					<label for='name' style="color: black;">User Name:</label>
+					<input type="text" class='form-control' name="username" value="<?php echo $data['user_name']; ?>">
 				</div>
 				<div class="form-group ">
 					<label for='phone' style="color: black;">Phone:</label>

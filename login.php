@@ -86,7 +86,7 @@ if (isset($_SESSION['id'])) {
 					<input type="submit" class="btn btn-success form-control"  name="login" value="Login" style="padding: 5px 30px;">
 				</div>
 				
-				<p style="font-size:16px; font-style:bold;color:black;text-align: center; margin-bottom: 20px;">Forget Password? <a href="#"> Click Here</a></p>
+				<p style="font-size:16px; font-style:bold;color:black;text-align: center; margin-bottom: 20px;">Forget Password? <a href="forget.php"> Click Here</a></p>
 				<p style="font-size:16px; font-style:bold;color:black;text-align: center;">Do not an account? <a href="signup.php"> Click Here</a></p>
 			</form>
 		</div>

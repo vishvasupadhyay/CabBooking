@@ -101,6 +101,10 @@ if(isset($_SESSION['id'])){
                 }
             ?>
 			<form action="" method="POST">
+			<!-- 	<div class="form-group">
+					<label for='password'>Old Password:</label>
+					<input type="password1" class='form-control' name="password1">
+				</div> -->
 				<div class="form-group">
 					<label for='password'>Password:</label>
 					<input type="password" class='form-control' name="password">

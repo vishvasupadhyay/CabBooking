@@ -72,12 +72,14 @@ if($cancell == '0') {
       <ul class="sidebar-nav">
         <li class="sidebar-brand" style="background-color:black;">
           <a class="" href="#"><img src="ceb.png" width="100" alt="CedCab" class="logoimage" style="margin-top:-17px"></a>
-        </li>
-        <li>
 
+        </li>
+        <h4> Hey, <?php echo $_SESSION['username']; ?></h4>
+        <li>
             <h4><a class="active" style="color:white;" href="userdashboard.php">Home</a></h4>
         </li>
         <li>
+
           <h4><a href="index.php" style="color: white;">Book Cab</a></h4>
           <h4><a href="#" style="color:white;">Rides</a></h4>
           <a href='previousrides.php'>Compeleted Rides</a>
