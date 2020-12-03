@@ -1,6 +1,14 @@
  <?php
  include ("Users.php");
  include ("Rides.php"); 
+$conn = new config();
+if(isset($_SESSION['id'])){
+    if($_SESSION['usertype'] != '0') {
+        header("location:admin/admindashboard.php");
+    }
+} else {
+    header("location:index.php");
+}
  if(isset($_GET['sort'])){
   $order = $_GET['sort'];
   $sort = $_GET['val'];
@@ -17,7 +25,7 @@ if(isset($_GET['sort'])){
     $id = $_SESSION['id'];
     $obj = new Rides();
     $db = new config();
-    $final = $obj->sort_col($id, $sort, $order, '2', $db->conn);
+    $final = $obj->sort_col($id, $sort, $order, '1', $db->conn);
 }
 if(isset($_POST['fetch'])){
   $date1 = $_POST['date1'];
@@ -136,7 +144,7 @@ if(isset($_POST['fetch_week'])){
                       <a href="requestedride.php?sort=ASC&val=total_fare"><p class="caret"></p></a>
                       <a href="requestedride.php?sort=DESC&val=total_fare"><p class="caret caret-dropup"></p></a>
                     </th>
-                    <th class="text-center">Customer Id</th>
+                    <th class="text-center">Status</th>
                    <!--  <th class="text-center" colspan="2">Action</th> -->
                 </tr>
             </thead>
@@ -150,7 +158,7 @@ if(isset($_POST['fetch_week'])){
                   $rides = new Rides();
                   $db = new config();
                   $id = $_SESSION['id'];
-                  $sql = $rides->select_previous_rides($id, '2',  $db->conn);
+                  $sql = $rides->select_previous_rides($id, '1',  $db->conn);
                 }
                 if($sql == '0'){
                     ?>
@@ -168,12 +176,12 @@ if(isset($_POST['fetch_week'])){
                                 <td><?php echo ucfirst($data['to']); ?></td>
                                 <td><?php echo ucfirst($data['total_distance']); ?></td>
                                 <td><?php if($data['luggage'] == "") { echo '0'; } else { echo $data['luggage']; }  ?></td>
-                         <!--        <td><?php echo ucfirst($data['cabtype']); ?></td> -->
+                         
                                 <td><?php echo ucfirst($data['total_fare']); ?></td>
                                 <td><?php if($data['status'] == '0') { echo "Cancelled"; } elseif($data['status'] == '2'){ echo "Completed"; } else { echo "Pending"; }; ?></td>
                             </tr>
                         <?php
-                        if($data['status'] == '2'){
+                        if($data['status'] == '1'){
                           $price = $price + $data['total_fare'];
                         }
                     }

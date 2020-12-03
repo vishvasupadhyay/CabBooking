@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
   <div id="wrap">
-     <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><=</a>
+     
     <!-- Sidebar Section -->
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
@@ -81,6 +81,7 @@ if(isset($_POST['submit'])){
     </div>
     <!-- Main Section/ Landing Page -->
     <section id="main" style="background-color: skyblue;">
+      <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle</a>
       <div>
         <div class="panel-body text-right">
         
@@ -97,11 +98,11 @@ if(isset($_POST['submit'])){
             <form class="form" action="" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control" name="name" pattern="^[_A-z0-9]*((-|\s)*[_A-z0-9])*$" title="special character not allowed" required>
                 </div>
                 <div class="form-group">
                     <label for="distance">Distance From Charbagh</label>
-                    <input type="number" class="form-control" name="distance">
+                    <input type="number" class="form-control" name="distance" required>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="form-control btn btn-success" name="submit" value="Submit">

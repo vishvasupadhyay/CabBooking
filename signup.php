@@ -101,7 +101,7 @@ include("Users.php");
 				</div>
 				<div class="form-group ">
 					<label for='username' style="color: black;font-size: 20px;">Username:</label>
-					<input type="text" class='form-control' name="username" required>
+					<input type="text" class='form-control' name="username" pattern="^[_A-z0-9]*((-|\s)*[_A-z0-9])*$" required>
 				</div>
 				<div class="form-group ">
 					<label for='phone' style="color: black;font-size: 20px;">Phone:</label>
@@ -117,11 +117,11 @@ include("Users.php");
 				</div>
 				<div class="form-group">
 					<label for='password' style="color: black;font-size: 20px;">Password:</label>
-					<input type="password" class='form-control' name="password" required>
+					<input type="password" class='form-control' name="password" pattern=".{5,}" title="five or more characters" required>
 				</div>
 				<div class="form-group">
 					<label for='confirmpassword' style="color: black;font-size: 20px;">Confirm Password:</label>
-					<input type="password" class='form-control' name="confirmpassword" required>
+					<input type="password" class='form-control' name="confirmpassword" pattern=".{5,}" title="five or more characters" required>
 				</div>
 				<div class="form-group " style="padding: 10px 0px;">
 					<input type="submit" class="btn btn-success form-control"  name="submit" value="Register" style="padding: 5px 30px;">

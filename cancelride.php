@@ -6,7 +6,7 @@
   $sort = $_GET['val'];
   $obj = new Rides();
   $db = new config();
-  $final = $obj->sort_statuswise('1', $sort, $order, $db->conn);
+  $final = $obj->sort_statuswise('0', $sort, $order, $db->conn);
   // echo $final;
   // die();
 }
@@ -17,7 +17,7 @@ if(isset($_GET['sort'])){
     $id = $_SESSION['id'];
     $obj = new Rides();
     $db = new config();
-    $final = $obj->sort_col($id, $sort, $order, '2', $db->conn);
+    $final = $obj->sort_col($id, $sort, $order, '0', $db->conn);
 }
 if(isset($_POST['fetch'])){
   $date1 = $_POST['date1'];
@@ -102,13 +102,13 @@ if(isset($_POST['fetch_week'])){
         </div>
           <div class="container text-center" style="width:80%;">
             <div class="container">
-        <form action="requestedride.php" method="post">
+        <form action="cancelride.php" method="post">
           Datewise Filter: 
           <input type="date" name="date1" required>
           <input type="date" name="date2" required>
           <input type="submit" value="fetch" name="fetch">
         </form>
-        <form action="requestedride.php" method="post">
+        <form action="cancelride.php" method="post">
           WeekWise Filter: 
           <input type="week" name="week" required>
           <input type="submit" value="fetch" name="fetch_week">
@@ -136,7 +136,7 @@ if(isset($_POST['fetch_week'])){
                           <a href="cancelride.php?sort=ASC&val=total_fare"><p class="caret"></p></a>
                           <a href="cancelride.php?sort=DESC&val=total_fare"><p class="caret caret-dropup"></p></a>
                         </th>
-                        <th class="text-center">Customer ID</th>
+                        <th class="text-center">Status</th>
                         <!-- <th class="text-center">Action</th> -->
                     </tr>
                 </thead>
@@ -150,7 +150,7 @@ if(isset($_POST['fetch_week'])){
                   $rides = new Rides();
                   $db = new config();
                   $id = $_SESSION['id'];
-                  $sql = $rides->select_previous_rides($id, '2',  $db->conn);
+                  $sql = $rides->select_previous_rides($id, '0',  $db->conn);
                 }
                 if($sql == '0'){
                     ?>
@@ -168,12 +168,12 @@ if(isset($_POST['fetch_week'])){
                                 <td><?php echo ucfirst($data['to']); ?></td>
                                 <td><?php echo ucfirst($data['total_distance']); ?></td>
                                 <td><?php if($data['luggage'] == "") { echo '0'; } else { echo $data['luggage']; }  ?></td>
-                         <!--        <td><?php echo ucfirst($data['cabtype']); ?></td> -->
+                        
                                 <td><?php echo ucfirst($data['total_fare']); ?></td>
-                                <td><?php if($data['status'] == '0') { echo "Cancelled"; } elseif($data['status'] == '2'){ echo "Completed"; } else { echo "Pending"; }; ?></td>
+                                <td><?php if($data['status'] == '0') { echo "Cancelled"; } elseif($data['status'] == '0'){ echo "Completed"; } else { echo "Pending"; }; ?></td>
                             </tr>
                         <?php
-                        if($data['status'] == '2'){
+                        if($data['status'] == '0'){
                           $price = $price + $data['total_fare'];
                         }
                     }

@@ -105,7 +105,7 @@ if(isset($_SESSION['id'])){
 				$data = mysqli_fetch_assoc($sql);
 				?>
 				<div class="form-group">
-					<label for='name' style="color: black;">User Name:</label>
+					<label for='name' style="color: black;">Name:</label>
 					<input type="text" class='form-control' name="username" value="<?php echo $data['user_name']; ?>">
 				</div>
 				<div class="form-group ">

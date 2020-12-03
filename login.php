@@ -75,7 +75,7 @@ if (isset($_SESSION['id'])) {
 			<form action="login.php" method="POST">
 				<div class="form-group" style="padding: 5px 0px;">
 					<label for='username'>Username:</label>
-					<input type="text" class='form-control' name="username" required>
+					<input type="text" class='form-control' name="username" pattern="^[_A-z0-9]*((-|\s)*[_A-z0-9])*$" required>
 				</div>
 				<div class="form-group" style="padding: 5px 0px;" >
 					<label for='password'>Password:</label>

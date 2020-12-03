@@ -168,7 +168,7 @@ if(isset($_POST['fetch_week'])){
                                 <td><?php echo ucfirst($data['to']); ?></td>
                                 <td><?php echo ucfirst($data['total_distance']); ?></td>
                                 <td><?php if($data['luggage'] == "") { echo '0'; } else { echo $data['luggage']; }  ?></td>
-                         <!--        <td><?php echo ucfirst($data['cabtype']); ?></td> -->
+                        
                                 <td><?php echo ucfirst($data['total_fare']); ?></td>
                                 <td><?php if($data['status'] == '0') { echo "Cancelled"; } elseif($data['status'] == '2'){ echo "Completed"; } else { echo "Pending"; }; ?></td>
                             </tr>
