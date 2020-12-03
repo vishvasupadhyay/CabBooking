@@ -49,9 +49,9 @@ class Rides {
         }
     }
     
-    function insert($from, $to, $luggage, $fare, $distance,$user_id, $status, $conn) {
-        $sql = "INSERT INTO ride(`ride_date`, `from`, `to`, `total_distance`, `luggage`, `total_fare`, `status`, `customer_user_id`, `is_delete`) VALUES (NOW(), '".$from."', '".$to."', '".$distance."', '".$luggage."', '".$fare."', '".$status."', '".$user_id."',0)";
-        // echo $sql;
+    function insert($from, $to, $luggage, $fare, $distance , $cabtype ,$user_id, $status, $conn) {
+        $sql = "INSERT INTO ride(`ride_date`, `from`, `to`, `total_distance`, `cabtype`,`luggage`, `total_fare`, `status`, `customer_user_id`, `is_delete`) VALUES (NOW(), '".$from."', '".$to."', '".$distance."', '".$cabtype."', '".$luggage."', '".$fare."', '".$status."', '".$user_id."',0)";
+        // print_r($sql); 
         // die();
         $run = mysqli_query($conn, $sql);
         if(!$run){

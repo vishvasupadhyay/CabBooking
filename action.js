@@ -1,3 +1,14 @@
+function allRide(rideType){
+    console.log(rideType);
+    $.ajax({
+        url:"allrides.php",
+        method:"POST",
+        data:{type: rideType},
+        dataType: "json",
+    }).done(function(result){
+        console.log(result);
+    });
+}
 function loc() {
     var x = document.getElementById("pickup").value;
     $("#drop option[value='" + x + "']").attr("disabled", "disabled").siblings().removeAttr("disabled");
@@ -17,6 +28,7 @@ function cabType() {
     } else {
         $("#luggage").prop('disabled', false);
     }
+    $(".subButton").css("display","none");
 }
 function farecalc() {
     var pckup = $("#pickup").val();

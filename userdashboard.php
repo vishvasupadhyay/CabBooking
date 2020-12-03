@@ -76,12 +76,12 @@ if($cancell == '0') {
         </li>
         <h4> Hey, <?php echo $_SESSION['username']; ?></h4>
         <li>
-            <h4><a class="active" style="color:white;" href="userdashboard.php">Home</a></h4>
+            <h4><a class="active" style="color:white;" href="index.php">Home</a></h4>
         </li>
         <li>
 
           <h4><a href="index.php" style="color: white;">Book Cab</a></h4>
-          <h4><a href="#" style="color:white;">Rides</a></h4>
+          <h4><a href="userdashboard.php" style="color:white;">Rides</a></h4>
           <a href='previousrides.php'>Compeleted Rides</a>
           <a href='requestedride.php'>Pending Rides</a>
           <a href='cancelride.php'>Cancelled Rides</a>

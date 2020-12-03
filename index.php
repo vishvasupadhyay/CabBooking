@@ -20,12 +20,13 @@ if(isset($_POST['submit'])){
     $to = $_POST['drop'];
     $luggage = isset($_POST['luggage'])?$_POST['luggage']:"";
     $fare = $_POST['fare'];
+    $cabtype = $_POST['cab_type'];
     $distance = $_POST['distance'];
     $user_id = $_SESSION['id'];
     $status = '1';
     $obj = new Rides();
     $db = new config();
-    $sql = $obj->insert($from, $to, $luggage, $fare, $distance, $user_id, $status, $db->conn);
+    $sql = $obj->insert($from, $to, $luggage, $fare , $distance, $cabtype, $user_id, $status, $db->conn);
     
   }
 }

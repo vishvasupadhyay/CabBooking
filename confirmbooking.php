@@ -17,13 +17,13 @@ if(isset($_SESSION['id'])){
     $luggage = $_SESSION['booking']['luggage'];
     $fare = $_SESSION['booking']['fare'];
     $distance = $_SESSION['booking']['total_distance'];
-    // $cabtype = $_SESSION['booking']['cabtype'];
+    $cabtype = $_SESSION['booking']['cabtype'];
     $user_id = $_SESSION['id'];
     $status = '1';
     if(isset($_GET['action'])){
       $obj = new Rides();
       $db = new config();
-      $sql = $obj->insert($from, $to, $luggage, $fare, $distance, $user_id, $status, $db->conn);
+      $sql = $obj->insert($from, $to, $luggage, $fare, $distance, $cabtype, $user_id, $status, $db->conn);
       header("location:requestedride.php");
       unset($_SESSION['booking']);
     } 
@@ -111,6 +111,9 @@ if(isset($_SESSION['id'])){
                   
                     <tr>
                       <th><h4>Distance</h4></th><td><h4><?php echo ucfirst($distance); ?></h4></td>
+                    </tr>
+                    <tr>
+                      <th><h4>Cabtype</h4></th><td><h4><?php echo ucfirst($cabtype); ?></h4></td>
                     </tr>
                     <tr>
                       <th><h4>Fare</h4></th><td><h4><?php echo ucfirst($fare); ?></h4></td>

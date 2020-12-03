@@ -127,6 +127,11 @@ if(isset($_GET['sort'])){
                       <a href="requestedrides.php?sort=DESC&val=total_distance"><p class="caret caret-dropup"></p></a>
                     </th>
                     <th class="text-center">Luggage</th>
+                     <th class="text-center">
+                      Cabtype
+                      <a href="requestedrides.php?sort=ASC&val=total_distance"><p class="caret"></p></a>
+                      <a href="requestedrides.php?sort=DESC&val=total_distance"><p class="caret caret-dropup"></p></a>
+                    </th>
                     <th class="text-center">
                       Total Fare
                       <a href="requestedrides.php?sort=ASC&val=total_fare"><p class="caret"></p></a>
@@ -155,7 +160,8 @@ if(isset($_GET['sort'])){
                                 <td><?php echo ucfirst($data['from']); ?></td>
                                 <td><?php echo ucfirst($data['to']); ?></td>
                                 <td><?php echo ucfirst($data['total_distance']); ?></td>
-                                <td><?php echo ucfirst($data['luggage']); ?> &#13199;</td>
+                                <td><?php if($data['luggage']==""){echo '0';}else {echo $data['luggage'];}?>&#13199;</td>
+                                    <td><?php echo ucfirst($data['cabtype']); ?></td>
                                 <td>&#8360;.<?php echo ucfirst($data['total_fare']); ?></td>
                                 <td><?php echo ucfirst($data['customer_user_id']); ?></td>
                                 <td>
