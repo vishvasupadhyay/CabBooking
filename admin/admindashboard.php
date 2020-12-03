@@ -123,7 +123,7 @@ foreach((array)$blockedusers as $blocked) {
               </div>
               <div class="progress">
               <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0%" aria-valuemin="0" aria-valuemax="100" style="width:3%">
-                0%
+                1
               </div>
             </div>
             <div class="panel-footer text-center"><a href="requestedrides.php">Click</a> to see more..
@@ -136,7 +136,7 @@ foreach((array)$blockedusers as $blocked) {
               </div>
               <div class="progress">
               <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="30%" aria-valuemin="0" aria-valuemax="100" style="width:10%">
-                30%
+                5
               </div>
             </div>
 
@@ -151,7 +151,7 @@ foreach((array)$blockedusers as $blocked) {
               </div>
               <div class="progress">
               <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40%" aria-valuemin="0" aria-valuemax="100" style="width:10%">
-                5%
+                34
               </div>
             </div>
               <div class="panel-footer text-center"><a href="cancelledrides.php">Click</a> to see more..</div>
@@ -173,7 +173,7 @@ foreach((array)$blockedusers as $blocked) {
               </div>
               <div class="progress">
               <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:5%">
-                5%
+                35
               </div>
             </div>
               <div class="panel-footer text-ecnter"><a href="pastrides.php">Click</a> to see more..</div>

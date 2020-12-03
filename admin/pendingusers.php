@@ -92,10 +92,7 @@ if(isset($_GET['sort'])){
     <section id="main" style="background-color: skyblue;">
         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle</a>
     <div>
-      <div class="panel-body text-right">
-        <h4> Hey, <?php echo $_SESSION['username']; ?>
-        <a href='../logout.php'>Logout</a></h4>
-      </div>
+     
     </div>
     <div class="container text-center">
         <h2>Pending/Blocked Users</h2>

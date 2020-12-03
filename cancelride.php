@@ -1,4 +1,5 @@
  <?php
+ 
  include ("Users.php");
  include ("Rides.php"); 
  if(isset($_GET['sort'])){
@@ -179,7 +180,7 @@ if(isset($_POST['fetch_week'])){
                     }
                     ?>
                         <tr>
-                            <td colspan="9"><h2>Total Spent: <?php echo $price; ?></h2></td>
+                            <td colspan="9"><h2>Total Spent:&#8360;. <?php echo $price; ?></h2></td>
                         </tr>
                     <?php
                 }

@@ -62,7 +62,7 @@ if (isset($_SESSION['id'])) {
 		</div>
 		<div class="col-md-4 col-lg-4 col-sm-10" id='abc'>
 			<center>
-				<img src="ceb.png" alt="" style="margin-bottom: -40px;" width="100" height="100"/>
+				<a href="index.php"><img style="margin-bottom: -40px;" src="ceb.png" alt="" width="100" height="100"/></a>
 			</center>
 			<h2 style="text-align: center; color: black;">Account Login</h2>
 			<?php

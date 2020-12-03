@@ -8,8 +8,8 @@ if(isset($_SESSION['id'])){
   }elseif(isset($_SESSION['booking'])) {
     header("location:confirmbooking.php");
   }
-
-  
+}else {
+	header("location:index.php");
 }
 
 $confirmed_ride = new Rides();

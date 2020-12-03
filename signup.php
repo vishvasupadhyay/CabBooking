@@ -1,5 +1,10 @@
 <?php
 //  include("config.php");
+if(isset($_SESSION['id'])){
+    if($_SESSION['usertype'] != '0'){
+        header("location:index.php.php");
+    }
+}
 
 include("Users.php");
  $error = "";

@@ -80,10 +80,10 @@ if(isset($_POST['update'])){
     <!-- Main Section/ Landing Page -->
     <section id="main" style="background-color: skyblue;">
     <div>
-      <div class="panel-body text-right">
+      <!-- <div class="panel-body text-right">
         <h4> Hey, <?php echo $_SESSION['username']; ?>
         <a href='../logout.php'>Logout</a></h4>
-      </div>
+      </div> -->
     </div>
     <div class="text-center">
         <h2>Edit Location</h2>
