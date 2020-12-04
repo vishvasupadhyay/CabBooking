@@ -2,16 +2,9 @@
 
  include ("Users.php");
  include ("Rides.php"); 
- if(isset($_GET['sort'])){
-  $order = $_GET['sort'];
-  $sort = $_GET['val'];
-  $obj = new Rides();
-  $db = new config();
-  $final = $obj->sort_statuswise('0', $sort, $order, $db->conn);
-  // echo $final;
-  // die();
-}
+ 
 $datewise = "";
+$cabwise ="";
 if(isset($_GET['sort'])){
     $order = $_GET['sort'];
     $sort = $_GET['val'];
@@ -37,6 +30,16 @@ if(isset($_POST['fetch_week'])){
   $datewise = $obj->filter_weekwise($id, $week, '2', $db->conn);
   // echo $datewise;
   // die();
+}
+if (isset($_GET['fetchcab'])) {
+  $cabtype=$_GET['cabtype'];
+  $id= $_SESSION['id'];
+  $obj= new Rides();
+  $db = new config();
+  $cabwise = $obj->filter_cabtype($id , '0', $cabtype, $db->conn);
+  if($cabwise===0){
+    $cabwise='0';
+  }
 }
   ?>
  <!DOCTYPE html>
@@ -114,6 +117,17 @@ if(isset($_POST['fetch_week'])){
           <input type="week" name="week" required>
           <input type="submit" value="fetch" name="fetch_week">
         </form>
+        <form action="cancelride.php" method="get">
+          Cabwise:
+          <select name="cabtype" id="Cabtype">
+            <option  value="">Select options</option>
+            <option value="cedmicro"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedmicro</option>
+            <option value="cedmini"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedmini</option>
+            <option value="cedroyal"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedroyal</option>
+            <option value="cedsuv"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedsuv</option>
+          </select>
+          <input type="submit" value="fetch" name="fetchcab">
+        </form>
       </div>
             <table class="table table-striped">
                 <thead>
@@ -134,8 +148,7 @@ if(isset($_POST['fetch_week'])){
                         <th class="text-center">Luggage</th>
                         <th class="text-center">
                           Cabtype
-                          <a href="cancelride.php?sort=ASC&val=total_distance"><p class="caret"></p></a>
-                          <a href="cancelride.php?sort=DESC&val=total_distance"><p class="caret caret-dropup"></p></a>
+                          
                         </th>
                         <th class="text-center">
                           Total Fare
@@ -152,7 +165,10 @@ if(isset($_POST['fetch_week'])){
                   $sql = $final; 
                 } elseif($datewise != "") {
                   $sql = $datewise;
-                } else {
+                }elseif ($cabwise!=="") {
+
+                  $sql = $cabwise;
+                }else {
                   $rides = new Rides();
                   $db = new config();
                   $id = $_SESSION['id'];
@@ -176,7 +192,7 @@ if(isset($_POST['fetch_week'])){
                                 <td><?php if($data['luggage']==""){echo '0';}else {echo $data['luggage'];}?>&#13199;</td>
                                 <td><?php echo ucfirst($data['cabtype']); ?></td>
                                 <td><?php echo ucfirst($data['total_fare']); ?></td>
-                                <td><?php if($data['status'] == '0') { echo "Cancelled"; } elseif($data['status'] == '0'){ echo "Completed"; } else { echo "Pending"; }; ?></td>
+                                <td><?php if($data['status'] == '0') { echo "Cancelled"; } elseif($data['status'] == '2'){ echo "Completed"; } else { echo "Pending"; }; ?></td>
                             </tr>
                         <?php
                         if($data['status'] == '0'){
@@ -185,7 +201,7 @@ if(isset($_POST['fetch_week'])){
                     }
                     ?>
                         <tr>
-                            <td colspan="9"><h2>Total Spent:&#8360;. <?php echo $price; ?></h2></td>
+                            <td colspan="9"><h2>Total Spent: &#8360;.<?php echo $price; ?></h2></td>
                         </tr>
                     <?php
                 }

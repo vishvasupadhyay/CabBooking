@@ -28,6 +28,8 @@ if(isset($_SESSION['id'])){
         $register = new Users();
         $sql = $register->update($_SESSION['id'], $username, $name, $phone, $role, $pass, $isblock, $db->conn);
         echo $sql;
+        // echo "<script>alert('Congo! you have done successfully change youre Name';)</script>";
+        // session_destroy();
     }
  }
 ?>
@@ -110,7 +112,7 @@ if(isset($_SESSION['id'])){
 				</div>
 				<div class="form-group ">
 					<label for='phone' style="color: black;">Phone:</label>
-					<input type="text" class='form-control' name="phone" value="<?php echo $data['mobile']; ?>">
+					<input type="text" class='form-control' pattern="[0-9]{3}[0-9]{3}[0-9]{4}" name="phone" value="<?php echo $data['mobile']; ?>">
                 </div>
 				<div class="form-group " style="padding: 10px 0px;">
 					<input type="submit" class="btn btn-success form-control"  name="submit" value="Update" style="padding: 5px 30px;">

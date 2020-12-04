@@ -2,6 +2,7 @@
 include ("Users.php");
 include("Locations.php");
 include("Rides.php");
+
 if(isset($_SESSION['id'])){
   if($_SESSION['usertype'] != '0') {
       header("location:admin/admindashboard.php");

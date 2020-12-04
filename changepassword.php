@@ -30,6 +30,7 @@ if(isset($_SESSION['id'])){
         }
         $register = new Users();
         $sql = $register->update_password($_SESSION['id'], $username, $name, $phone, $isblock, $pass, $role, $db->conn);
+        session_destroy();
         header("location: login.php");
     }
  }

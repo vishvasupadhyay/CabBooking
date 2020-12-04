@@ -19,6 +19,8 @@ if(isset($_SESSION['id'])){
   // die();
 }
 $datewise = "";
+$cabwise ="";
+// $cancelled  ="";
 if(isset($_GET['sort'])){
     $order = $_GET['sort'];
     $sort = $_GET['val'];
@@ -33,7 +35,7 @@ if(isset($_POST['fetch'])){
   $id = $_SESSION['id'];
   $obj = new Rides();
   $db = new config();
-  $datewise = $obj->filter_datewise($id, $date1, $date2, '2', $db->conn);
+  $datewise = $obj->filter_datewise($id, $date1, $date2, '1', $db->conn);
   
 }
 if(isset($_POST['fetch_week'])){
@@ -41,10 +43,25 @@ if(isset($_POST['fetch_week'])){
   $id = $_SESSION['id'];
   $obj = new Rides();
   $db = new config();
-  $datewise = $obj->filter_weekwise($id, $week, '2', $db->conn);
+  $datewise = $obj->filter_weekwise($id, $week, '1', $db->conn);
   // echo $datewise;
   // die();
 }
+if (isset($_GET['fetchcab'])) {
+  $cabtype=$_GET['cabtype'];
+  $id= $_SESSION['id'];
+  $obj= new Rides();
+  $db = new config();
+  $cabwise = $obj->filter_cabtype($id , '1', $cabtype, $db->conn);
+  
+}
+// if(isset($_GET['cancellride'])){
+//   $id= $_GET['id'];
+//   $blck = new Rides();
+//   $db = new config();
+//   $cancelled = $blck->update($id,'cancel',$db->conn);
+// }
+
   ?>
  <!DOCTYPE html>
  <html>
@@ -121,6 +138,17 @@ if(isset($_POST['fetch_week'])){
           <input type="week" name="week" required>
           <input type="submit" value="fetch" name="fetch_week">
         </form>
+          <form action="requestedride.php" method="get">
+          Cabwise:
+          <select name="cabtype" id="Cabtype">
+            <option  value="">Select options</option>
+            <option value="cedmicro"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedmicro</option>
+            <option value="cedmini"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedmini</option>
+            <option value="cedroyal"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedroyal</option>
+            <option value="cedsuv"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedsuv</option>
+          </select>
+          <input type="submit" value="fetch" name="fetchcab">
+        </form>
       </div>
         <table class="container table table-striped" style="width:80%;">
             <thead>
@@ -141,8 +169,7 @@ if(isset($_POST['fetch_week'])){
                     <th class="text-center">Luggage</th>
                     <th class="text-center">
                       Cabtype
-                      <a href="requestedride.php?sort=ASC&val=total_distance"><p class="caret"></p></a>
-                      <a href="requestedride.php?sort=DESC&val=total_distance"><p class="caret caret-dropup"></p></a>
+                     
                     </th>
                     <th class="text-center">
                       Total Fare
@@ -150,7 +177,7 @@ if(isset($_POST['fetch_week'])){
                       <a href="requestedride.php?sort=DESC&val=total_fare"><p class="caret caret-dropup"></p></a>
                     </th>
                     <th class="text-center">Status</th>
-                   <!--  <th class="text-center" colspan="2">Action</th> -->
+                  <!--   <th class="text-center" colspan="2">Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -159,7 +186,12 @@ if(isset($_POST['fetch_week'])){
                   $sql = $final; 
                 } elseif($datewise != "") {
                   $sql = $datewise;
-                } else {
+                }elseif ($cabwise!=""){
+                  $sql= $cabwise;
+               } // }elseif($cancelled!=""){
+                //   $sql= $cancelled;
+                // }
+                 else {
                   $rides = new Rides();
                   $db = new config();
                   $id = $_SESSION['id'];
@@ -185,6 +217,7 @@ if(isset($_POST['fetch_week'])){
                          
                                 <td><?php echo ucfirst($data['total_fare']); ?></td>
                                 <td><?php if($data['status'] == '0') { echo "Cancelled"; } elseif($data['status'] == '2'){ echo "Completed"; } else { echo "Pending"; }; ?></td>
+                              
                             </tr>
                         <?php
                         if($data['status'] == '1'){

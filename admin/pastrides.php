@@ -119,8 +119,7 @@ if(isset($_GET['sort'])){
                         <th class="text-center">Luggage</th>
                         <th class="text-center">
                           Cabtype
-                          <a href="pastrides.php?sort=ASC&val=total_distance"><p class="caret"></p></a>
-                          <a href="pastrides.php?sort=DESC&val=total_distance"><p class="caret caret-dropup"></p></a>
+                          
                         </th>
                         <th class="text-center">
                           Total Fare

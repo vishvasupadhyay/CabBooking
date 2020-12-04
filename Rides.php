@@ -164,5 +164,15 @@ class Rides {
             return $run;
         }
     }
+    function filter_cabtype($id,$status,$cabtype,$conn){
+    $sql = "SELECT * FROM `ride` WHERE `cabtype` = '$cabtype' AND `status` = '$status'";
+    $run =mysqli_query($conn, $sql);
+    if(mysqli_num_rows($run)>0){
+        return $run;
+    }else{
+        return 0;
+    }
+  }
 }
+
 ?>

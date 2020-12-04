@@ -2,7 +2,7 @@
 //  include("config.php");
 if(isset($_SESSION['id'])){
     if($_SESSION['usertype'] != '0'){
-        header("location:index.php.php");
+        header("location:index.php");
     }
 }
 
@@ -102,7 +102,7 @@ include("Users.php");
 			<form action="" method="POST">
 				<div class="form-group">
 					<label for='name' style="color: black;font-size: 20px;">Name:</label>
-					<input type="text" class='form-control' name="name" required>
+					<input type="text" class='form-control' name="name" pattern="^[_A-z0-9]*((-|\s)*[_A-z0-9])*$" required>
 				</div>
 				<div class="form-group ">
 					<label for='username' style="color: black;font-size: 20px;">Username:</label>
@@ -110,8 +110,9 @@ include("Users.php");
 				</div>
 				<div class="form-group ">
 					<label for='phone' style="color: black;font-size: 20px;">Phone:</label>
-					<input type="text" class='form-control' name="phone">
+					<input type="tel" class='form-control' name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
                 </div>
+
                 <div class="form-group ">
 					<label for='role'style="color: black;font-size: 20px;">Role:</label>
 					<select class="form-control" name="role" id="role">

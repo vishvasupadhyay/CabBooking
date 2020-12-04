@@ -123,9 +123,9 @@ $comp = $obj1->select_invoice($id, $db->conn);
                     <div class="panel-footer text-center">
                         <h2>Total Fare:&#8360;.<?php echo ucfirst($data['total_fare']); ?></h2>
                     </div>
-                    <!-- <div class="panel-footer text-center">
+                    <div class="panel-footer text-center">
                        <button onclick="window.print()">Print</button>
-                    </div> -->
+                    </div>
                     
                 </div>
             </div>

@@ -119,18 +119,14 @@ if(isset($_GET['sort'])){
                           <a href="allrides.php?sort=DESC&val=total_distance"><p class="caret caret-dropup"></p></a>
                         </th>
                         <th class="text-center">Luggage</th>
-                        <th class="text-center">
-                          Cabtype
-                          <a href="allrides.php?sort=ASC&val=total_distance"><p class="caret"></p></a>
-                          <a href="allrides.php?sort=DESC&val=total_distance"><p class="caret caret-dropup"></p></a>
-                        </th>
+                        <th class="text-center">Cabtype</th>
                         <th class="text-center">
                           Total Fare
                           <a href="allrides.php?sort=ASC&val=total_fare"><p class="caret"></p></a>
                           <a href="allrides.php?sort=DESC&val=total_fare"><p class="caret caret-dropup"></p></a>
                         </th>
                         <th class="text-center">Customer ID</th>
-                        <th class="text-center">Action</th>
+                        <th class="text-center">Status</th>
                     </tr>
                 </thead>
                 <tbody>

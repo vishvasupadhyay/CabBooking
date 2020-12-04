@@ -10,6 +10,7 @@ if(isset($_SESSION['id'])){
     header("location:index.php");
 }
 $datewise = "";
+$cabwise ="";
 if(isset($_GET['sort'])){
     $order = $_GET['sort'];
     $sort = $_GET['val'];
@@ -35,6 +36,14 @@ if(isset($_POST['fetch_week'])){
   $datewise = $obj->filter_weekwise($id, $week, '2', $db->conn);
   // echo $datewise;
   // die();
+}
+if (isset($_GET['fetchcab'])) {
+  $cabtype=$_GET['cabtype'];
+  $id= $_SESSION['id'];
+  $obj= new Rides();
+  $db = new config();
+  $cabwise = $obj->filter_cabtype($id , '2', $cabtype, $db->conn);
+  
 }
 ?>
 
@@ -113,6 +122,17 @@ if(isset($_POST['fetch_week'])){
           <input type="week" name="week" required>
           <input type="submit" value="fetch" name="fetch_week">
         </form>
+             <form action="previousrides.php" method="get">
+          Cabwise:
+          <select name="cabtype" id="Cabtype">
+            <option  value="">Select options</option>
+            <option value="cedmicro"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedmicro</option>
+            <option value="cedmini"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedmini</option>
+            <option value="cedroyal"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedroyal</option>
+            <option value="cedsuv"<?php if(isset($_GET['cabtype'])&&($_GET['cabtype']=='cedmicro')){echo "selected";}  ?>> Cedsuv</option>
+          </select>
+          <input type="submit" value="fetch" name="fetchcab">
+        </form>
       </div>
         <table class="table table-striped">
             <thead>
@@ -133,8 +153,7 @@ if(isset($_POST['fetch_week'])){
                     <th class="text-center">Luggage</th>
                      <th class="text-center">
                       Cabtype
-                      <a href="previousrides.php?sort=ASC&val=total_distance"><p class="caret"></p></a>
-                      <a href="previousrides.php?sort=DESC&val=total_distance"><p class="caret caret-dropup"></p></a>
+                      
                     </th>
                    
                     <th class="text-center">
@@ -151,7 +170,12 @@ if(isset($_POST['fetch_week'])){
                   $sql = $final; 
                 } elseif($datewise != "") {
                   $sql = $datewise;
-                } else {
+
+                }elseif($cabwise!=""){
+                  $sql =$cabwise;
+
+                }
+                 else {
                   $rides = new Rides();
                   $db = new config();
                   $id = $_SESSION['id'];
