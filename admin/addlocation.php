@@ -36,15 +36,19 @@ if(isset($_POST['submit'])){
       .form-group {
           text-align: left;
       }
+      #sidebar-wrapper{
+      background-color: lightgreen;
+    }
+
   </style>
 </head>
 <body>
   <div id="wrap">
      
     <!-- Sidebar Section -->
-    <div id="sidebar-wrapper">
+    <div id="sidebar-wrapper" style="background-color: lightgreen;">
       <ul class="sidebar-nav">
-          <li class="sidebar-brand" style="background-color:black;">
+          <li class="sidebar-brand" style="background-color:lightgreen;">
             <a class="" href="#"><img src="../taxi1.png" width="100" alt="CedCab" class="logoimage" style="margin-bottom:-40px"></a>
           </li>
            <div>
@@ -53,22 +57,22 @@ if(isset($_POST['submit'])){
               <h4> Hey, <?php echo $_SESSION['username']; ?>
           <a href='../logout.php'>Logout</a></h4>
           <li>
-              <h4><a style="color:white;" href="admindashboard.php">Home</a></h4>
+              <h4><a style="color:black;" href="admindashboard.php">Home</a></h4>
           </li>
           <li>
-            <h4><a href="#" style="color:white;">Rides</a></h4>
+            <h4><a href="#" style="color:black">Rides</a></h4>
             <a href='requestedrides.php'>Pending Rides</a>
             <a href='pastrides.php'>Compeleted Rides</a>
             <a href='cancelledrides.php'>Cancelled Rides</a>
             <a href='allrides.php'>All Rides</a>
           </li>
           <li>
-            <h4><a href="#" style="color:white;">Locations</a></h4>
+            <h4><a href="#" style="color:black;">Locations</a></h4>
             <a href='alllocations.php'>All Locations</a>
-            <a class="active" href='addlocation.php'>Add New Locations</a>
+            <a  href='addlocation.php'>Add New Locations</a>
           </li>
           <li>
-            <h4><a href="#" style="color:white;">Users</a></h4>
+            <h4><a href="#" style="color:black;">Users</a></h4>
             <a href='pendingusers.php'>Pending User Requests</a>
             <a href='approvedusers.php'>Approved User Requests</a>
             <a href='allusers.php'>All Users</a>
@@ -105,7 +109,7 @@ if(isset($_POST['submit'])){
                     <input type="number" class="form-control" name="distance" required>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="form-control btn btn-success" name="submit" value="Submit">
+                    <input type="submit" class="form-control btn btn-success" name="submit" value="Submit"> 
                 </div>
             </form>
         </div>

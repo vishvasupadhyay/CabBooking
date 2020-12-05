@@ -78,11 +78,11 @@ if (isset($_GET['fetchcab'])) {
         </li>
         <li>
 
-            <h4><a class="active" style="color:white;" href="userdashboard.php">Home</a></h4>
+            <h4><a class="active" style="color:black;" href="userdashboard.php">Home</a></h4>
         </li>
         <li>
-          <h4><a href="index.php" style="color: white;">Book Cab</a></h4>
-          <h4><a href="#" style="color:white;">Rides</a></h4>
+          <h4><a href="index.php" style="color: black;">Book Cab</a></h4>
+          <h4><a href="#" style="color:black;">Rides</a></h4>
           <a href='previousrides.php'>Compeleted Rides</a>
           <a href='requestedride.php'>Pending Rides</a>
           <a href='cancelride.php'>Cancelled Rides</a>
@@ -218,6 +218,108 @@ if (isset($_GET['fetchcab'])) {
       </div>
 
     </section>
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Ced Cab</h5>
+        
+        <p>The perfect way to get through your everyday travel needs. City taxis are available 24/7 and you can book and travel in an instant.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Discover Ced</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <a href="#!">Careers</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">ABOUT US</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">Offers</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">Contacct Us</a>
+            </p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Contact details -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <i class="fas fa-home mr-3"></i>Lucknow</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-phone mr-3"></i> +91 1234567899</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-print mr-3"></i> +91 1234567899</p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+     
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">©Copyright2020: Designed by-<b>Vishvas Upadhyay...</b><span>&hearts;</span> All rights reserved.
+  
+  </div>
+  <!-- Copyright -->
+
+</footer>
    
   </div>
   <script src="action.js"></script>

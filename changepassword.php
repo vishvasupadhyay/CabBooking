@@ -28,10 +28,16 @@ if(isset($_SESSION['id'])){
             $pass = md5($password);
             $role = $data['isadmin'];
         }
-        $register = new Users();
+        if($pass==$oldpassword){
+        	echo "<script>alert('old password and new password cannot be same');</script";
+        }else{
+        	$register = new Users();
         $sql = $register->update_password($_SESSION['id'], $username, $name, $phone, $isblock, $pass, $role, $db->conn);
         session_destroy();
         header("location: login.php");
+
+        }
+        
     }
  }
 ?>
@@ -56,6 +62,7 @@ if(isset($_SESSION['id'])){
 	#main{
 		background-color: crimson;
 		background-size:100% 100%;
+		padding: 0;
 	}
 	#jumb{
 		position:relative;
@@ -83,6 +90,33 @@ if(isset($_SESSION['id'])){
 </head>
 <body>
 <div class="container-fluid" id='main'>
+	 <header>
+      <nav class="navbar navbar-default" style="background-color:aqua; ">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="ceb.png" width="85" alt="CedCab" class="logoimage" style="margin-top: -33px;"></a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#main">Book Cab</a></li>
+             
+              <?php 
+                if(isset($_SESSION['id'])) { 
+                  echo "<li><a>Hey, &nbsp".$_SESSION['username']."<li><a href='userdashboard.php'>Dashboard</a></li></a></li><li><a href='logout.php'>Logout</a></li>";
+                } 
+              ?>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 	<div class="jumbotron" id='jumb'>
 		<div class="col-md-3 col-lg-3 col-sm-1">
 		</div>
@@ -121,5 +155,109 @@ if(isset($_SESSION['id'])){
 			</form>
 	</div>
 </div>
+<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Ced Cab</h5>
+        
+        <p>The perfect way to get through your everyday travel needs. City taxis are available 24/7 and you can book and travel in an instant.</p>
+
+      </div>
+      <!-- Grid column -->
+
+    
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Discover Ced</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <a href="#!">Careers</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">ABOUT US</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">Offers</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">Contacct Us</a>
+            </p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Contact details -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <i class="fas fa-home mr-3"></i>Lucknow</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-phone mr-3"></i> +91 1234567899</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-print mr-3"></i> +91 1234567899</p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      
+
+      <!-- Grid column -->
+     
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">©Copyright2020: Designed by-<b>Vishvas Upadhyay...</b><span>&hearts;</span> All rights reserved.
+  
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</div>
+
 </body>
 </html>

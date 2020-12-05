@@ -97,11 +97,11 @@ if (isset($_GET['fetchcab'])) {
         </li>
         <li>
 
-            <h4><a class="active" style="color:white;" href="userdashboard.php">Home</a></h4>
+            <h4><a class="active" style="color:black;" href="userdashboard.php">Home</a></h4>
         </li>
         <li>
-          <h4><a href="index.php" style="color: white;">Book Cab</a></h4>
-          <h4><a href="#" style="color:white;">Rides</a></h4>
+          <h4><a href="index.php" style="color: black;">Book Cab</a></h4>
+          <h4><a href="#" style="color:black;">Rides</a></h4>
           <a href='previousrides.php'>Compeleted Rides</a>
           <a href='requestedride.php'>Pending Rides</a>
           <a href='cancelride.php'>Cancelled Rides</a>

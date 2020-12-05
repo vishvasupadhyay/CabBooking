@@ -12,12 +12,12 @@ nav{
     /*background-color: aqua;*/
     border: none;
 }
-.navbar-right> .active a, .sidebar-nav>li>.active{
-    background-color: yellow !important;
+/*.navbar-right> .active a, .sidebar-nav>li>.active{
+    background-color: skyblue !important;
 }
 .navbar-right li:hover {
-    background-color: grey;
-}
+    background-color: skyblue !important;
+}*/
 .logoimage {
     margin-top: -40px;
 }
@@ -172,7 +172,7 @@ footer {
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background-color: crimson;
+  background-color: crimson;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -213,12 +213,12 @@ footer {
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+ /*   color: #999999;*/
 }
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #fff;
+    color: black;
     background: rgba(255,255,255,0.2);
 }
 
@@ -241,6 +241,11 @@ footer {
     color: #fff;
     background: none;
 }
+ul.sidebar-nav h4{
+  background-color: floralwhite;
+    padding: 5px;
+}
+
 
 @media(min-width:768px) {
     #wrap {
@@ -262,7 +267,7 @@ footer {
     #page-content-wrapper {
         padding: 20px;
         position: relative;
-        background-color: currentColor;
+        background-color: cornflowerblue;
     }
 
     #wrap.toggled #page-content-wrapper {

@@ -65,7 +65,7 @@ if(isset($_POST['submit'])){
             <ul class="nav navbar-nav">
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="#main">Book Cab</a></li>
+              <li><a href="#main">Book Cab</a></li>
               <li><a href='login.php'>Login</a></li>
               <li><a href='signup.php'>Sign Up</a></li>
               <?php 
