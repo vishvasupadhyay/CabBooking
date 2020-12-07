@@ -83,7 +83,7 @@ if(isset($_SESSION['id'])){
            <!--  <li class="active"><a href='previousrides.php'>Rides</a></li> -->
             <!-- <li><a href='updateprofile.php'>Update Profile</a></li>
             <li><a href='changepassword.php'>Change Password</a></li> -->
-            <li><a><?php echo "Hey, &nbsp".$_SESSION['username']; ?></a></li>
+            <li><a><?php echo "Hey, &nbsp".$_SESSION['name']; ?></a></li>
             <li><a href='logout.php'>Logout</a></li>
             </ul>
           </div>

@@ -74,7 +74,7 @@ if(isset($_GET['sort'])){
           <li class="sidebar-brand" style="background-color:lightgreen;">
             <a class="" href="#"><img src="../taxi1.png" width="100" alt="CedCab" class="logoimage" style="margin-bottom:-40px"></a>
           </li>
-           <h4> Hey, <?php echo $_SESSION['username']; ?>
+           <h4> Hey, <?php echo $_SESSION['name']; ?>
            <a href='../logout.php'>Logout</a></h4>
           <li>
               <h4><a style="color:black;" href="admindashboard.php">Home</a></h4>  

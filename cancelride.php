@@ -64,6 +64,11 @@ if (isset($_GET['fetchcab'])) {
     .caret-dropup {
       transform: rotate(180deg);
     }
+
+    ul.sidebar-nav li a{
+    color:black;
+}
+  
   </style>
 
  </head>
@@ -200,9 +205,9 @@ if (isset($_GET['fetchcab'])) {
                         }
                     }
                     ?>
-                        <tr>
+                     <!--    <tr>
                             <td colspan="9"><h2>Total Spent: &#8360;.<?php echo $price; ?></h2></td>
-                        </tr>
+                        </tr> -->
                     <?php
                 }
             ?>

@@ -23,8 +23,10 @@ function cabType() {
     $("#calculatedFare").html("Calculate Fare");
     var x = document.getElementById("cab_type").value;
     if (x == "cedmicro") {
-        $("#luggage").val("");
-        $("#luggage").prop('disabled', true);
+  
+    $("#luggage").val("");
+    $("#luggage").prop('disabled', true);
+      $("#msg").html("Note: Luggage Not allowed in CedMicro");
     } else {
         $("#luggage").prop('disabled', false);
     }
@@ -72,6 +74,7 @@ function myFunction() {
   } else {
     x.type = "password";
   }
+   
 }
 
 

@@ -65,6 +65,11 @@ if($cancell == '0') {
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
+	<style>
+		ul.sidebar-nav li a{
+    color:black;
+}
+	</style>
 
   <div id="wrap">
      <!-- Sidebar -->
@@ -75,15 +80,15 @@ if($cancell == '0') {
           <a class="" href="#"><img src="ceb.png" width="100" alt="CedCab" class="logoimage" style="margin-top:-17px"></a>
 
         </li>
-        <h4> Hey, <?php echo $_SESSION['username']; ?></h4>
+        <h4> Hey, <?php echo $_SESSION['name']; ?></h4>
         <li>
-            <h4><a class="active" style="color:black;" href="index.php">Home</a></h4>
+            <h4><a class="active" style="color:black;" href="userdashboard.php">Home</a></h4>
         </li>
         <li>
 
           <h4><a href="index.php" style="color: black;">Book Cab</a></h4>
           <h4><a href="userdashboard.php" style="color:black;">Rides</a></h4>
-          <a href='previousrides.php'>Compeleted Rides</a>
+          <a href='previousrides.php' >Compeleted Rides</a>
           <a href='requestedride.php'>Pending Rides</a>
           <a href='cancelride.php'>Cancelled Rides</a>
           <li><a href='updateprofile.php'>Update Profile</a></li>
@@ -161,7 +166,7 @@ if($cancell == '0') {
         </div>
       </div>
     </div>
-    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
+    <footer id="foot" class="page-footer font-small mdb-color lighten-3 pt-4" style="padding: 258px;">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">

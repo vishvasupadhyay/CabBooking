@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
            <div>
             
            </div>
-              <h4> Hey, <?php echo $_SESSION['username']; ?>
+              <h4> Hey, <?php echo $_SESSION['name']; ?>
           <a href='../logout.php'>Logout</a></h4>
           <li>
               <h4><a style="color:black;" href="admindashboard.php">Home</a></h4>
@@ -102,7 +102,7 @@ if(isset($_POST['submit'])){
             <form class="form" action="" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" pattern="^[_A-z0-9]*((-|\s)*[_A-z0-9])*$" title="special character not allowed" required>
+                    <input type="text" class="form-control" name="name" pattern="^[a-zA-Z][A-Za-z0-9\s-]*$" title="integer value not allowed" required>
                 </div>
                 <div class="form-group">
                     <label for="distance">Distance From Charbagh</label>
@@ -169,7 +169,7 @@ if(isset($_POST['submit'])){
             </p>
           </li>
         </ul>
-
+Book
       </div>
       <!-- Grid column -->
 

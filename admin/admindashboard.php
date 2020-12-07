@@ -94,6 +94,9 @@ foreach((array)$blockedusers as $blocked) {
           <a href='addlocation.php'>Add New Locations</a>
         </li>
         <li>
+        <h4><a href="changepss.php" style="color:black;">Change password</a></h4>
+      </li>
+        <li>
           <h4><a href="#" style="color:black;">Users</a></h4>
           <a href='pendingusers.php'>Pending User Requests</a>
           <a href='approvedusers.php'>Approved User Requests</a>
@@ -121,11 +124,7 @@ foreach((array)$blockedusers as $blocked) {
                 <h3>Pending Rides</h3>
                 <h1><?php echo $pendingrides; ?></h1>
               </div>
-              <div class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0%" aria-valuemin="0" aria-valuemax="100" style="width:3%">
-                1
-              </div>
-            </div>
+            
             <div class="panel-footer text-center"><a href="requestedrides.php">Click</a> to see more..
             </div>
             </div>
@@ -134,11 +133,7 @@ foreach((array)$blockedusers as $blocked) {
                 <h3>Pending User Requests</h3>
                 <h1><?php echo $pendingusers; ?></h1>
               </div>
-              <div class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="30%" aria-valuemin="0" aria-valuemax="100" style="width:10%">
-                5
-              </div>
-            </div>
+              
 
               <div class="panel-footer text-center"><a href="pendingusers.php">Click</a> to see more..</div>
             </div>
@@ -149,11 +144,7 @@ foreach((array)$blockedusers as $blocked) {
                 <h3>Cancelled Rides</h3>
                 <h1><?php echo $cancelledrides; ?></h1>
               </div>
-              <div class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40%" aria-valuemin="0" aria-valuemax="100" style="width:10%">
-                34
-              </div>
-            </div>
+              
               <div class="panel-footer text-center"><a href="cancelledrides.php">Click</a> to see more..</div>
             </div>
             <div class="panel panel-success">
@@ -171,11 +162,7 @@ foreach((array)$blockedusers as $blocked) {
                 <h3>Completed Rides</h3>
                 <h1><?php echo $completedrides; ?></h1>
               </div>
-              <div class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:5%">
-                35
-              </div>
-            </div>
+              
               <div class="panel-footer text-ecnter"><a href="pastrides.php">Click</a> to see more..</div>
             </div>
             

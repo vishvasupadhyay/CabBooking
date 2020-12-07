@@ -48,28 +48,28 @@ $comp = $obj1->select_invoice($id, $db->conn);
 <body>
   <div id="wrap">
         <!-- Sidebar -->
-    <div id="sidebar-wrapper">
+    <div id="sidebar-wrapper" style="background-color: lightgreen;">
       <ul class="sidebar-nav">
         <li class="sidebar-brand" style="background-color:black;">
           <a class="" href="#"><img src="../ceb.png" width="100" alt="CedCab" class="logoimage" style="margin-bottom:-40px"></a>
         </li>
         <li>
-            <h4><a class="active" style="color:white;" href="admindashboard.php">Home</a></h4>
+            <h4><a class="active" style="color:black;" href="admindashboard.php">Home</a></h4>
         </li>
         <li>
-          <h4><a href="#" style="color:white;">Rides</a></h4>
+          <h4><a href="#" style="color:black;">Rides</a></h4>
           <a href='requestedrides.php'>Pending Rides</a>
           <a href='pastrides.php'>Compeleted Rides</a>
           <a href='cancelledrides.php'>Cancelled Rides</a>
           <a href='allrides.php'>All Rides</a>
         </li>
         <li>
-          <h4><a href="#" style="color:white;">Locations</a></h4>
+          <h4><a href="#" style="color:black;">Locations</a></h4>
           <a href='alllocations.php'>All Locations</a>
           <a href='addlocation.php'>Add New Locations</a>
         </li>
         <li>
-          <h4><a href="#" style="color:white;">Users</a></h4>
+          <h4><a href="#" style="color:black;">Users</a></h4>
           <a href='pendingusers.php'>Pending User Requests</a>
           <a href='approvedusers.php'>Approved User Requests</a>
           <a href='allusers.php'>All Users</a>
@@ -85,7 +85,7 @@ $comp = $obj1->select_invoice($id, $db->conn);
     <div id="page-content-wrapper">
       <div>
         <div class="panel-body text-right">
-        <h4> Hey, <?php echo $_SESSION['username']; ?>
+        <h4> Hey, <?php echo $_SESSION['name']; ?>
           <a href='../logout.php'>Logout</a></h4>
         </div>
       </div>
@@ -102,8 +102,9 @@ $comp = $obj1->select_invoice($id, $db->conn);
                             <h3>From:</h3>
                             <h3>To:</h3>
                             <h3>Total Distance: </h3>
-                            <h3>CabType: </h3>
+                            
                             <h3>Luggage:</h3>
+                            <h3>CabType: </h3>
                         </div>
                         <div class="col-md-6 col-lg-6">
                         <?php foreach($comp as $data) {
@@ -112,10 +113,10 @@ $comp = $obj1->select_invoice($id, $db->conn);
                                 <h3><?php echo $data['ride_id']; ?></h3>
                                 <h3><?php echo $data['from']; ?></h3>
                                 <h3><?php echo $data['to']; ?></h3>
-                                <h3><?php echo $data['total_distance']; ?></h3>
-                                <h3><?php echo $data['cabtype']?></h3>
-                                <h3><?php echo $data['luggage']; ?> &#13199;</h3>
+                                <h3><?php echo $data['total_distance']; ?> km</h3>
                                 
+                                <h3><?php echo $data['luggage']; ?> &#13199;</h3>
+                                <h3><?php echo $data['cabtype']?></h3>
                             <?php
                         } ?>
                         </div>

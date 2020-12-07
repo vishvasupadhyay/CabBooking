@@ -11,9 +11,9 @@ if(isset($_SESSION['id'])){
 	}
  $error = "";
  if(isset($_POST['submit'])) {
-    $username = $_POST['username'];
+    $name = $_POST['name'];
 	$phone = $_POST['phone'];
-    if($username == '' || $phone == ''){
+    if($name == '' || $phone == ''){
         $error = 'Please complete the form and then submit';
     } 
     else {
@@ -21,7 +21,8 @@ if(isset($_SESSION['id'])){
 		$db = new config();
 		$sql1 = $obj->select_user_id($_SESSION['id'], $db->conn);
 		$data = mysqli_fetch_assoc($sql1);
-		$name = $data['name'];
+		
+		$username = $data['username'];
 		$isblock = $data['isblock'];
 		$pass = $data['password'];
 		$role = $data['isadmin'];
@@ -100,7 +101,7 @@ if(isset($_SESSION['id'])){
              
               <?php 
                 if(isset($_SESSION['id'])) { 
-                  echo "<li><a>Hey, &nbsp".$_SESSION['username']."<li><a href='userdashboard.php'>Dashboard</a></li></a></li><li><a href='logout.php'>Logout</a></li>";
+                  echo "<li><a>Hey, &nbsp".$_SESSION['name']."<li><a href='userdashboard.php'>Dashboard</a></li></a></li><li><a href='logout.php'>Logout</a></li>";
                 } 
               ?>
             </ul>
@@ -135,7 +136,7 @@ if(isset($_SESSION['id'])){
 				?>
 				<div class="form-group">
 					<label for='name' style="color: black;">Name:</label>
-					<input type="text" class='form-control' name="username" value="<?php echo $data['user_name']; ?>">
+					<input type="text" class='form-control' pattern="^[_A-z0-9]*((-|\s)*[_A-z0-9])*$"  name="name" value="<?php echo $data['name']; ?>">
 				</div>
 				<div class="form-group ">
 					<label for='phone' style="color: black;">Phone:</label>

@@ -85,6 +85,10 @@ if (isset($_GET['fetchcab'])) {
     .caret-dropup {
       transform: rotate(180deg);
     }
+    ul.sidebar-nav li a{
+    color:black;
+}
+  
   </style>
 
  </head>

@@ -23,8 +23,8 @@ class Users {
         }
     }
 
-    function login($username, $password, $conn){
-        $qry = "SELECT * FROM users WHERE `user_name` = '$username' AND `password` = '$password'";
+    function login($name, $password, $conn){
+        $qry = "SELECT * FROM users WHERE `name` = '$name' AND `password` = '$password'";
         $run = mysqli_query($conn, $qry);
         $row = mysqli_num_rows($run);
         if ($row<1) {
@@ -36,10 +36,10 @@ class Users {
             } else {
                 $id = $data['user_id'];
                 $usertype = $data['isadmin'];
-                $uname = $data['user_name'];
+                $name = $data['name'];
                 $_SESSION['id'] = $id;
                 $_SESSION['usertype'] = $usertype;
-                $_SESSION['username'] = $uname;
+                $_SESSION['name'] = $name;
 				if($usertype == "1"){
 					header("location:admin/admindashboard.php");
 				} else {

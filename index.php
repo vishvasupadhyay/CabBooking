@@ -70,7 +70,7 @@ if(isset($_POST['submit'])){
               <li><a href='signup.php'>Sign Up</a></li>
               <?php 
                 if(isset($_SESSION['id'])) { 
-                  echo "<li><a>Hey, &nbsp".$_SESSION['username']."<li><a href='userdashboard.php'>Dashboard</a></li></a></li><li><a href='logout.php'>Logout</a></li>";
+                  echo "<li><a>Hey, &nbsp".$_SESSION['name']."<li><a href='userdashboard.php'>Dashboard</a></li></a></li><li><a href='logout.php'>Logout</a></li>";
                 } 
               ?>
             </ul>
@@ -138,6 +138,7 @@ if(isset($_POST['submit'])){
                       <option value="cedsuv">CedSuv</option>
                     </select>
                   </div>
+
                 </div>
                 <div class="form-group">
                   <div class="col-sm-10">
@@ -156,6 +157,7 @@ if(isset($_POST['submit'])){
                     <button type="submit" id="calculatedFare" name="submit" class="btn btn-default form-control sub_btn" onclick="farecalc()"style="background-color: cyan !important;">Book Now</button>
                   </div>
                 </div>
+                <div id="msg" style="color:lawngreen; font-size: 19px; margin: 59px;" ></div>
               </form>
             </div>
             <div class="col-sm-2 col-md-6 col-lg-6"></div>

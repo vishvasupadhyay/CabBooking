@@ -29,7 +29,7 @@ if(isset($_SESSION['id'])){
             $role = $data['isadmin'];
         }
         if($pass==$oldpassword){
-        	echo "<script>alert('old password and new password cannot be same');</script";
+        	echo "<script>alert('old password and new password cannot be same');</script>";
         }else{
         	$register = new Users();
         $sql = $register->update_password($_SESSION['id'], $username, $name, $phone, $isblock, $pass, $role, $db->conn);
@@ -109,7 +109,7 @@ if(isset($_SESSION['id'])){
              
               <?php 
                 if(isset($_SESSION['id'])) { 
-                  echo "<li><a>Hey, &nbsp".$_SESSION['username']."<li><a href='userdashboard.php'>Dashboard</a></li></a></li><li><a href='logout.php'>Logout</a></li>";
+                  echo "<li><a>Hey, &nbsp".$_SESSION['name']."<li><a href='userdashboard.php'>Dashboard</a></li></a></li><li><a href='logout.php'>Logout</a></li>";
                 } 
               ?>
             </ul>
