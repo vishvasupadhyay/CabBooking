@@ -22,7 +22,7 @@ if(isset($_SESSION['id'])){
 		$sql1 = $obj->select_user_id($_SESSION['id'], $db->conn);
 		$data = mysqli_fetch_assoc($sql1);
 		
-		$username = $data['username'];
+		$username = $data['user_name'];
 		$isblock = $data['isblock'];
 		$pass = $data['password'];
 		$role = $data['isadmin'];

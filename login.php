@@ -74,7 +74,7 @@ if (isset($_SESSION['id'])) {
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="index.php">Book Cab</a></li>
-              <li><a href="signup.php">Signup</li>
+              <li><a href="signup.php">Sign Up</li>
              
               <?php 
                 if(isset($_SESSION['id'])) { 
